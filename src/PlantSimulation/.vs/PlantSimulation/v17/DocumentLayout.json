@@ -1,0 +1,511 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\PlantSimulation\\src\\PlantSimulation\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{8756898E-5478-194E-3496-8297FE322333}|Assembly-CSharp.csproj|D:\\PlantSimulation\\src\\PlantSimulation\\assets\\scripts\\systems\\rootgrowthsystem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8756898E-5478-194E-3496-8297FE322333}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\systems\\rootgrowthsystem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8756898E-5478-194E-3496-8297FE322333}|Assembly-CSharp.csproj|d:\\plantsimulation\\src\\plantsimulation\\assets\\scripts\\systems\\seedgrowthsystem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8756898E-5478-194E-3496-8297FE322333}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\systems\\seedgrowthsystem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8756898E-5478-194E-3496-8297FE322333}|Assembly-CSharp.csproj|D:\\PlantSimulation\\src\\PlantSimulation\\assets\\scripts\\systems\\stemgrowthsystem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8756898E-5478-194E-3496-8297FE322333}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\systems\\stemgrowthsystem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8756898E-5478-194E-3496-8297FE322333}|Assembly-CSharp.csproj|D:\\PlantSimulation\\src\\PlantSimulation\\assets\\scripts\\systems\\createrootsystem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8756898E-5478-194E-3496-8297FE322333}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\systems\\createrootsystem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8756898E-5478-194E-3496-8297FE322333}|Assembly-CSharp.csproj|D:\\PlantSimulation\\src\\PlantSimulation\\assets\\scripts\\systems\\createstemsystem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8756898E-5478-194E-3496-8297FE322333}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\systems\\createstemsystem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8756898E-5478-194E-3496-8297FE322333}|Assembly-CSharp.csproj|D:\\PlantSimulation\\src\\PlantSimulation\\assets\\scripts\\ecsgamestartup.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8756898E-5478-194E-3496-8297FE322333}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\ecsgamestartup.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8756898E-5478-194E-3496-8297FE322333}|Assembly-CSharp.csproj|D:\\PlantSimulation\\src\\PlantSimulation\\assets\\scripts\\environmentmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8756898E-5478-194E-3496-8297FE322333}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\environmentmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8756898E-5478-194E-3496-8297FE322333}|Assembly-CSharp.csproj|D:\\PlantSimulation\\src\\PlantSimulation\\assets\\scripts\\systems\\createseedsystem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8756898E-5478-194E-3496-8297FE322333}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\systems\\createseedsystem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8756898E-5478-194E-3496-8297FE322333}|Assembly-CSharp.csproj|D:\\PlantSimulation\\src\\PlantSimulation\\assets\\scripts\\systems\\createleafandflowersystem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8756898E-5478-194E-3496-8297FE322333}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\systems\\createleafandflowersystem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8756898E-5478-194E-3496-8297FE322333}|Assembly-CSharp.csproj|D:\\PlantSimulation\\src\\PlantSimulation\\assets\\scripts\\systems\\createbranchsystem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8756898E-5478-194E-3496-8297FE322333}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\systems\\createbranchsystem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8756898E-5478-194E-3496-8297FE322333}|Assembly-CSharp.csproj|D:\\PlantSimulation\\src\\PlantSimulation\\assets\\scripts\\systems\\leafgrowthsystem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8756898E-5478-194E-3496-8297FE322333}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\systems\\leafgrowthsystem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8756898E-5478-194E-3496-8297FE322333}|Assembly-CSharp.csproj|D:\\PlantSimulation\\src\\PlantSimulation\\assets\\scripts\\systems\\flowergrowthsystem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8756898E-5478-194E-3496-8297FE322333}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\systems\\flowergrowthsystem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8756898E-5478-194E-3496-8297FE322333}|Assembly-CSharp.csproj|D:\\PlantSimulation\\src\\PlantSimulation\\assets\\scripts\\systems\\branchgrowthsystem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8756898E-5478-194E-3496-8297FE322333}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\systems\\branchgrowthsystem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8756898E-5478-194E-3496-8297FE322333}|Assembly-CSharp.csproj|D:\\PlantSimulation\\src\\PlantSimulation\\assets\\scripts\\systems\\seedanimationsystem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8756898E-5478-194E-3496-8297FE322333}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\systems\\seedanimationsystem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8756898E-5478-194E-3496-8297FE322333}|Assembly-CSharp.csproj|D:\\PlantSimulation\\src\\PlantSimulation\\assets\\scripts\\scriptableobject\\staticdata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8756898E-5478-194E-3496-8297FE322333}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\scriptableobject\\staticdata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8756898E-5478-194E-3496-8297FE322333}|Assembly-CSharp.csproj|D:\\PlantSimulation\\src\\PlantSimulation\\assets\\scripts\\scriptableobject\\environmentsettings.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8756898E-5478-194E-3496-8297FE322333}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\scriptableobject\\environmentsettings.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8756898E-5478-194E-3496-8297FE322333}|Assembly-CSharp.csproj|D:\\PlantSimulation\\src\\PlantSimulation\\assets\\scripts\\services\\growthratecalculator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8756898E-5478-194E-3496-8297FE322333}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\services\\growthratecalculator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8756898E-5478-194E-3496-8297FE322333}|Assembly-CSharp.csproj|D:\\PlantSimulation\\src\\PlantSimulation\\assets\\scripts\\enum\\oxygen.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8756898E-5478-194E-3496-8297FE322333}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\enum\\oxygen.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8756898E-5478-194E-3496-8297FE322333}|Assembly-CSharp.csproj|D:\\PlantSimulation\\src\\PlantSimulation\\assets\\scripts\\enum\\lightcolor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8756898E-5478-194E-3496-8297FE322333}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\enum\\lightcolor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8756898E-5478-194E-3496-8297FE322333}|Assembly-CSharp.csproj|D:\\PlantSimulation\\src\\PlantSimulation\\assets\\scripts\\enum\\water.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8756898E-5478-194E-3496-8297FE322333}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\enum\\water.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8756898E-5478-194E-3496-8297FE322333}|Assembly-CSharp.csproj|D:\\PlantSimulation\\src\\PlantSimulation\\assets\\scripts\\components\\environmentcomponent.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8756898E-5478-194E-3496-8297FE322333}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\components\\environmentcomponent.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8756898E-5478-194E-3496-8297FE322333}|Assembly-CSharp.csproj|D:\\PlantSimulation\\src\\PlantSimulation\\assets\\scripts\\components\\stemcomponent.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8756898E-5478-194E-3496-8297FE322333}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\components\\stemcomponent.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8756898E-5478-194E-3496-8297FE322333}|Assembly-CSharp.csproj|D:\\PlantSimulation\\src\\PlantSimulation\\assets\\scripts\\components\\branchcomponent.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8756898E-5478-194E-3496-8297FE322333}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\components\\branchcomponent.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8756898E-5478-194E-3496-8297FE322333}|Assembly-CSharp.csproj|D:\\PlantSimulation\\src\\PlantSimulation\\assets\\scripts\\components\\rootcomponent.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8756898E-5478-194E-3496-8297FE322333}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\components\\rootcomponent.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8756898E-5478-194E-3496-8297FE322333}|Assembly-CSharp.csproj|D:\\PlantSimulation\\src\\PlantSimulation\\assets\\scripts\\components\\leafcomponent.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8756898E-5478-194E-3496-8297FE322333}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\components\\leafcomponent.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8756898E-5478-194E-3496-8297FE322333}|Assembly-CSharp.csproj|D:\\PlantSimulation\\src\\PlantSimulation\\assets\\scripts\\components\\flowercomponent.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8756898E-5478-194E-3496-8297FE322333}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\components\\flowercomponent.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8756898E-5478-194E-3496-8297FE322333}|Assembly-CSharp.csproj|D:\\PlantSimulation\\src\\PlantSimulation\\assets\\scripts\\components\\fruitcomponent.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8756898E-5478-194E-3496-8297FE322333}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\components\\fruitcomponent.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8756898E-5478-194E-3496-8297FE322333}|Assembly-CSharp.csproj|D:\\PlantSimulation\\src\\PlantSimulation\\assets\\scripts\\diagram\\classdiagram1.cd||{59B0B277-7DDF-4E36-A3ED-02DAC5B9E2FA}|",
+      "RelativeMoniker": "D:0:0:{8756898E-5478-194E-3496-8297FE322333}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\diagram\\classdiagram1.cd||{59B0B277-7DDF-4E36-A3ED-02DAC5B9E2FA}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8756898E-5478-194E-3496-8297FE322333}|Assembly-CSharp.csproj|D:\\PlantSimulation\\src\\PlantSimulation\\assets\\scripts\\tags\\playertag.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8756898E-5478-194E-3496-8297FE322333}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\tags\\playertag.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 5,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{269a02dc-6af8-11d3-bdc4-00c04f688e50}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:2:0:{d212f56b-c48a-434c-a121-1c5d80b59b9f}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "StemGrowthSystem.cs",
+              "DocumentMoniker": "D:\\PlantSimulation\\src\\PlantSimulation\\Assets\\Scripts\\Systems\\StemGrowthSystem.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Systems\\StemGrowthSystem.cs",
+              "ToolTip": "D:\\PlantSimulation\\src\\PlantSimulation\\Assets\\Scripts\\Systems\\StemGrowthSystem.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Systems\\StemGrowthSystem.cs",
+              "ViewState": "AQIAAAgAAAAAAAAAAAAAwBsAAAA1AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-13T16:24:11.874Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "EcsGameStartup.cs",
+              "DocumentMoniker": "D:\\PlantSimulation\\src\\PlantSimulation\\Assets\\Scripts\\EcsGameStartup.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\EcsGameStartup.cs",
+              "ToolTip": "D:\\PlantSimulation\\src\\PlantSimulation\\Assets\\Scripts\\EcsGameStartup.cs",
+              "RelativeToolTip": "Assets\\Scripts\\EcsGameStartup.cs",
+              "ViewState": "AQIAABkAAAAAAAAAAAAQwCsAAAAOAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-13T16:26:38.704Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "SeedGrowthSystem.cs",
+              "DocumentMoniker": "D:\\PlantSimulation\\src\\PlantSimulation\\Assets\\Scripts\\Systems\\SeedGrowthSystem.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Systems\\SeedGrowthSystem.cs",
+              "ToolTip": "D:\\PlantSimulation\\src\\PlantSimulation\\Assets\\Scripts\\Systems\\SeedGrowthSystem.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Systems\\SeedGrowthSystem.cs",
+              "ViewState": "AQIAAAgAAAAAAAAAAAAxwCQAAAAbAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-17T15:07:51.98Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "RootGrowthSystem.cs",
+              "DocumentMoniker": "D:\\PlantSimulation\\src\\PlantSimulation\\Assets\\Scripts\\Systems\\RootGrowthSystem.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Systems\\RootGrowthSystem.cs",
+              "ToolTip": "D:\\PlantSimulation\\src\\PlantSimulation\\Assets\\Scripts\\Systems\\RootGrowthSystem.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Systems\\RootGrowthSystem.cs",
+              "ViewState": "AQIAAAYAAAAAAAAAAAAowBMAAAAMAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-17T15:08:08.724Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{cce594b6-0c39-4442-ba28-10c64ac7e89f}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "CreateStemSystem.cs",
+              "DocumentMoniker": "D:\\PlantSimulation\\src\\PlantSimulation\\Assets\\Scripts\\Systems\\CreateStemSystem.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Systems\\CreateStemSystem.cs",
+              "ToolTip": "D:\\PlantSimulation\\src\\PlantSimulation\\Assets\\Scripts\\Systems\\CreateStemSystem.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Systems\\CreateStemSystem.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAcAAAAmAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-17T17:27:34.157Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "CreateRootSystem.cs",
+              "DocumentMoniker": "D:\\PlantSimulation\\src\\PlantSimulation\\Assets\\Scripts\\Systems\\CreateRootSystem.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Systems\\CreateRootSystem.cs",
+              "ToolTip": "D:\\PlantSimulation\\src\\PlantSimulation\\Assets\\Scripts\\Systems\\CreateRootSystem.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Systems\\CreateRootSystem.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAEAAAASAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-17T17:28:51.184Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "CreateLeafAndFlowerSystem.cs",
+              "DocumentMoniker": "D:\\PlantSimulation\\src\\PlantSimulation\\Assets\\Scripts\\Systems\\CreateLeafAndFlowerSystem.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Systems\\CreateLeafAndFlowerSystem.cs",
+              "ToolTip": "D:\\PlantSimulation\\src\\PlantSimulation\\Assets\\Scripts\\Systems\\CreateLeafAndFlowerSystem.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Systems\\CreateLeafAndFlowerSystem.cs",
+              "ViewState": "AQIAAAkAAAAAAAAAAAAAABEAAAAZAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-17T15:17:11.018Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "CreateSeedSystem.cs",
+              "DocumentMoniker": "D:\\PlantSimulation\\src\\PlantSimulation\\Assets\\Scripts\\Systems\\CreateSeedSystem.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Systems\\CreateSeedSystem.cs",
+              "ToolTip": "D:\\PlantSimulation\\src\\PlantSimulation\\Assets\\Scripts\\Systems\\CreateSeedSystem.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Systems\\CreateSeedSystem.cs",
+              "ViewState": "AQIAAAoAAAAAAAAAAAAxwA0AAAAdAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-17T17:54:14.977Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "EnvironmentManager.cs",
+              "DocumentMoniker": "D:\\PlantSimulation\\src\\PlantSimulation\\Assets\\Scripts\\EnvironmentManager.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\EnvironmentManager.cs",
+              "ToolTip": "D:\\PlantSimulation\\src\\PlantSimulation\\Assets\\Scripts\\EnvironmentManager.cs",
+              "RelativeToolTip": "Assets\\Scripts\\EnvironmentManager.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAgAAAAzAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-18T13:08:05.891Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "CreateBranchSystem.cs",
+              "DocumentMoniker": "D:\\PlantSimulation\\src\\PlantSimulation\\Assets\\Scripts\\Systems\\CreateBranchSystem.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Systems\\CreateBranchSystem.cs",
+              "ToolTip": "D:\\PlantSimulation\\src\\PlantSimulation\\Assets\\Scripts\\Systems\\CreateBranchSystem.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Systems\\CreateBranchSystem.cs",
+              "ViewState": "AQIAAAYAAAAAAAAAAAAAABYAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-17T17:25:25.929Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "LeafGrowthSystem.cs",
+              "DocumentMoniker": "D:\\PlantSimulation\\src\\PlantSimulation\\Assets\\Scripts\\Systems\\LeafGrowthSystem.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Systems\\LeafGrowthSystem.cs",
+              "ToolTip": "D:\\PlantSimulation\\src\\PlantSimulation\\Assets\\Scripts\\Systems\\LeafGrowthSystem.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Systems\\LeafGrowthSystem.cs",
+              "ViewState": "AQIAAAkAAAAAAAAAAAAswBwAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-17T15:16:37.589Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "FlowerGrowthSystem.cs",
+              "DocumentMoniker": "D:\\PlantSimulation\\src\\PlantSimulation\\Assets\\Scripts\\Systems\\FlowerGrowthSystem.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Systems\\FlowerGrowthSystem.cs",
+              "ToolTip": "D:\\PlantSimulation\\src\\PlantSimulation\\Assets\\Scripts\\Systems\\FlowerGrowthSystem.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Systems\\FlowerGrowthSystem.cs",
+              "ViewState": "AQIAAAYAAAAAAAAAAAArwBgAAAARAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-17T15:09:31.119Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "BranchGrowthSystem.cs",
+              "DocumentMoniker": "D:\\PlantSimulation\\src\\PlantSimulation\\Assets\\Scripts\\Systems\\BranchGrowthSystem.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Systems\\BranchGrowthSystem.cs",
+              "ToolTip": "D:\\PlantSimulation\\src\\PlantSimulation\\Assets\\Scripts\\Systems\\BranchGrowthSystem.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Systems\\BranchGrowthSystem.cs",
+              "ViewState": "AQIAACUAAAAAAAAAAAAQwFAAAAASAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-17T15:06:52.01Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "SeedAnimationSystem.cs",
+              "DocumentMoniker": "D:\\PlantSimulation\\src\\PlantSimulation\\Assets\\Scripts\\Systems\\SeedAnimationSystem.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Systems\\SeedAnimationSystem.cs",
+              "ToolTip": "D:\\PlantSimulation\\src\\PlantSimulation\\Assets\\Scripts\\Systems\\SeedAnimationSystem.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Systems\\SeedAnimationSystem.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-17T17:53:36.444Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "StaticData.cs",
+              "DocumentMoniker": "D:\\PlantSimulation\\src\\PlantSimulation\\Assets\\Scripts\\ScriptableObject\\StaticData.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\ScriptableObject\\StaticData.cs",
+              "ToolTip": "D:\\PlantSimulation\\src\\PlantSimulation\\Assets\\Scripts\\ScriptableObject\\StaticData.cs",
+              "RelativeToolTip": "Assets\\Scripts\\ScriptableObject\\StaticData.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-18T15:32:23.877Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "EnvironmentSettings.cs",
+              "DocumentMoniker": "D:\\PlantSimulation\\src\\PlantSimulation\\Assets\\Scripts\\ScriptableObject\\EnvironmentSettings.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\ScriptableObject\\EnvironmentSettings.cs",
+              "ToolTip": "D:\\PlantSimulation\\src\\PlantSimulation\\Assets\\Scripts\\ScriptableObject\\EnvironmentSettings.cs",
+              "RelativeToolTip": "Assets\\Scripts\\ScriptableObject\\EnvironmentSettings.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA4AAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-18T13:29:17.922Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "GrowthRateCalculator.cs",
+              "DocumentMoniker": "D:\\PlantSimulation\\src\\PlantSimulation\\Assets\\Scripts\\Services\\GrowthRateCalculator.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Services\\GrowthRateCalculator.cs",
+              "ToolTip": "D:\\PlantSimulation\\src\\PlantSimulation\\Assets\\Scripts\\Services\\GrowthRateCalculator.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Services\\GrowthRateCalculator.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAGAAAABJAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-13T22:11:43.713Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "Oxygen.cs",
+              "DocumentMoniker": "D:\\PlantSimulation\\src\\PlantSimulation\\Assets\\Scripts\\Enum\\Oxygen.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Enum\\Oxygen.cs",
+              "ToolTip": "D:\\PlantSimulation\\src\\PlantSimulation\\Assets\\Scripts\\Enum\\Oxygen.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Enum\\Oxygen.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-18T15:15:20.308Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "Water.cs",
+              "DocumentMoniker": "D:\\PlantSimulation\\src\\PlantSimulation\\Assets\\Scripts\\Enum\\Water.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Enum\\Water.cs",
+              "ToolTip": "D:\\PlantSimulation\\src\\PlantSimulation\\Assets\\Scripts\\Enum\\Water.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Enum\\Water.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-18T14:30:42.777Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "LightColor.cs",
+              "DocumentMoniker": "D:\\PlantSimulation\\src\\PlantSimulation\\Assets\\Scripts\\Enum\\LightColor.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Enum\\LightColor.cs",
+              "ToolTip": "D:\\PlantSimulation\\src\\PlantSimulation\\Assets\\Scripts\\Enum\\LightColor.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Enum\\LightColor.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-13T16:24:09.007Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
+              "Title": "EnvironmentComponent.cs",
+              "DocumentMoniker": "D:\\PlantSimulation\\src\\PlantSimulation\\Assets\\Scripts\\Components\\EnvironmentComponent.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Components\\EnvironmentComponent.cs",
+              "ToolTip": "D:\\PlantSimulation\\src\\PlantSimulation\\Assets\\Scripts\\Components\\EnvironmentComponent.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Components\\EnvironmentComponent.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAsAAAAnAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-17T16:18:34.331Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 21,
+              "Title": "StemComponent.cs",
+              "DocumentMoniker": "D:\\PlantSimulation\\src\\PlantSimulation\\Assets\\Scripts\\Components\\StemComponent.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Components\\StemComponent.cs",
+              "ToolTip": "D:\\PlantSimulation\\src\\PlantSimulation\\Assets\\Scripts\\Components\\StemComponent.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Components\\StemComponent.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAgAAAAXAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-17T15:07:39.889Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 22,
+              "Title": "BranchComponent.cs",
+              "DocumentMoniker": "D:\\PlantSimulation\\src\\PlantSimulation\\Assets\\Scripts\\Components\\BranchComponent.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Components\\BranchComponent.cs",
+              "ToolTip": "D:\\PlantSimulation\\src\\PlantSimulation\\Assets\\Scripts\\Components\\BranchComponent.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Components\\BranchComponent.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAcAAAAXAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-13T15:50:51.13Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 23,
+              "Title": "RootComponent.cs",
+              "DocumentMoniker": "D:\\PlantSimulation\\src\\PlantSimulation\\Assets\\Scripts\\Components\\RootComponent.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Components\\RootComponent.cs",
+              "ToolTip": "D:\\PlantSimulation\\src\\PlantSimulation\\Assets\\Scripts\\Components\\RootComponent.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Components\\RootComponent.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA0AAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-17T15:07:33.313Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 24,
+              "Title": "LeafComponent.cs",
+              "DocumentMoniker": "D:\\PlantSimulation\\src\\PlantSimulation\\Assets\\Scripts\\Components\\LeafComponent.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Components\\LeafComponent.cs",
+              "ToolTip": "D:\\PlantSimulation\\src\\PlantSimulation\\Assets\\Scripts\\Components\\LeafComponent.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Components\\LeafComponent.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAkAAAAcAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-17T17:01:15.761Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 25,
+              "Title": "FlowerComponent.cs",
+              "DocumentMoniker": "D:\\PlantSimulation\\src\\PlantSimulation\\Assets\\Scripts\\Components\\FlowerComponent.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Components\\FlowerComponent.cs",
+              "ToolTip": "D:\\PlantSimulation\\src\\PlantSimulation\\Assets\\Scripts\\Components\\FlowerComponent.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Components\\FlowerComponent.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAkAAAAcAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-17T16:31:28.201Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 26,
+              "Title": "FruitComponent.cs",
+              "DocumentMoniker": "D:\\PlantSimulation\\src\\PlantSimulation\\Assets\\Scripts\\Components\\FruitComponent.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Components\\FruitComponent.cs",
+              "ToolTip": "D:\\PlantSimulation\\src\\PlantSimulation\\Assets\\Scripts\\Components\\FruitComponent.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Components\\FruitComponent.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAMAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-13T22:11:38.593Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 27,
+              "Title": "ClassDiagram1.cd",
+              "DocumentMoniker": "D:\\PlantSimulation\\src\\PlantSimulation\\Assets\\Scripts\\Diagram\\ClassDiagram1.cd",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Diagram\\ClassDiagram1.cd",
+              "ToolTip": "D:\\PlantSimulation\\src\\PlantSimulation\\Assets\\Scripts\\Diagram\\ClassDiagram1.cd",
+              "RelativeToolTip": "Assets\\Scripts\\Diagram\\ClassDiagram1.cd",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000463|",
+              "WhenOpened": "2024-03-13T16:24:57.327Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 28,
+              "Title": "PlayerTag.cs",
+              "DocumentMoniker": "D:\\PlantSimulation\\src\\PlantSimulation\\Assets\\Scripts\\Tags\\PlayerTag.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Tags\\PlayerTag.cs",
+              "ToolTip": "D:\\PlantSimulation\\src\\PlantSimulation\\Assets\\Scripts\\Tags\\PlayerTag.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Tags\\PlayerTag.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-13T16:26:40.129Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

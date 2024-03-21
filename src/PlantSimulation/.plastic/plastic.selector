@@ -1,0 +1,4 @@
+repository "PlantSimulator@zhabkakisa@cloud"
+  path "/"
+    br "/main"
+    co "/main"
