@@ -7,7 +7,6 @@ namespace Assets.Scripts.Systems
 {
     public sealed class RootGrowthSystem : IEcsRunSystem
     {
-        private readonly EcsWorld _ecsWorld = null;
         private EnvironmentSettings environment;
         private StaticData staticData;
 
@@ -15,36 +14,23 @@ namespace Assets.Scripts.Systems
 
         public void Run()
         {
-            //ref var stem = ref _stemFilter.Get1(0);
+            if (!staticData.SeedSpawned || !staticData.RootSpawned)
+            {
+                return;
+            }
 
             foreach (var i in _rootFilter)
             {
-                if (!staticData.SeedSpawned)
-                {
-                    return;
-                }
-
                 ref var root = ref _rootFilter.Get1(i);
 
-                Debug.Log("Root grow " + i + " " + root.GrowthStage + " " + root.Size + " " + root.Lifetime);
-                /* if (stem.GrowthStage == PlantGrowthStage.Embryonic)
-                 {
-                     continue;
-                 }*/
+                //Debug.Log("Root grow " + i + " " + staticData.PlantGrowthStage + " " + root.Size + " " + root.Lifetime);
 
-                //ref var environment = ref _filter.Get2(i);
-
-               // root.Position = new Vector3();
-
-                //root.Size += GrowthRateCalculator.CalculateGrowthRate(environment) * Time.deltaTime;
-                //root.Lifetime += Time.deltaTime;
-
-                if (environment.Oxygen == Oxygen.Lack && root.GrowthStage == PlantGrowthStage.Juvenile)
+                if (environment.Oxygen == Oxygen.Lack && staticData.PlantGrowthStage == PlantGrowthStage.Juvenile)
                 {
                     root.IsOxygenLack = true;
                 }
 
-                switch (root.GrowthStage)
+                switch (staticData.PlantGrowthStage)
                 {
                     case PlantGrowthStage.Juvenile:
                         root.Lifetime += Time.deltaTime * 10;
@@ -52,7 +38,7 @@ namespace Assets.Scripts.Systems
 
                         if (root.Lifetime >= 100f)
                         {
-                            root.GrowthStage = PlantGrowthStage.MaturityAndReproduction;
+                            staticData.PlantGrowthStage = PlantGrowthStage.MaturityAndReproduction;
                         }
 
                         break;
@@ -63,7 +49,7 @@ namespace Assets.Scripts.Systems
 
                         if (root.Lifetime >= 400f)
                         {
-                            root.GrowthStage = PlantGrowthStage.Senile;
+                            staticData.PlantGrowthStage = PlantGrowthStage.Senile;
                         }
 
                         break;

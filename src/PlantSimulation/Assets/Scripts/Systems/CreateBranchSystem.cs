@@ -11,7 +11,8 @@ namespace Assets.Scripts.Systems
 {
     public sealed class CreateBranchSystem : IEcsRunSystem
     {
-        private readonly EcsWorld _ecsWorld = null;
+        private readonly EcsWorld _ecsWorld;
+        private readonly StaticData _staticData;
 
         EcsFilter<StemComponent> _filter;
 
@@ -21,7 +22,7 @@ namespace Assets.Scripts.Systems
             {
                 ref var stem = ref _filter.Get1(i);
 
-                if (stem.GrowthStage != Enum.PlantGrowthStage.Senile && stem.GrowthStage != Enum.PlantGrowthStage.Embryonic)
+                if (_staticData.PlantGrowthStage != Enum.PlantGrowthStage.Senile && _staticData.PlantGrowthStage != Enum.PlantGrowthStage.Embryonic)
                 {
                     var branchEntity = _ecsWorld.NewEntity();
                     ref var branch = ref branchEntity.Get<BranchComponent>();

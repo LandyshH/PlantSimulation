@@ -8,7 +8,7 @@ public struct StemComponent
     public float Height;
     public float Width;
     public float Lifetime;
-    public PlantGrowthStage GrowthStage;
+    //public PlantGrowthStage GrowthStage;
     public float Water;
     public Vector3 Position;
 }

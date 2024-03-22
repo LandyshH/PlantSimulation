@@ -6,7 +6,6 @@ namespace Assets.Scripts.Systems
 {
     public sealed class LeafGrowthSystem : IEcsRunSystem
     {
-        private readonly EcsWorld _ecsWorld = null;
         private EnvironmentSettings environment;
 
         EcsFilter<LeafComponent> _leafFilter;
@@ -18,16 +17,9 @@ namespace Assets.Scripts.Systems
 
             foreach (var i in _leafFilter)
             {
-                /*if (stem.GrowthStage == Enum.PlantGrowthStage.Embryonic || stem.GrowthStage == Enum.PlantGrowthStage.Senile)
-                {
-                    continue;
-                }*/
-
                 ref var leaf = ref _leafFilter.Get1(i);
 
                 //Debug.Log("Leaf grow " + leaf.Size + " " + leaf.Lifetime);
-
-                //ref var environment = ref _filter.Get2(i);
 
                 if (environment.Temperature != Enum.Temperature.Optimal)
                 {
@@ -38,8 +30,6 @@ namespace Assets.Scripts.Systems
 
                 leaf.Size += GrowthRateCalculator.CalculateGrowthRate(environment) * Time.deltaTime;
                 leaf.Lifetime += 10 * Time.deltaTime;
-
-                //Debug.Log("Leaf grow " + leaf.Size + " " + leaf.Lifetime);
             }
         }
     }

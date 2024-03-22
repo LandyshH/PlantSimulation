@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace Assets.Scripts.Tags
 {
     [Serializable]
-    public struct PlayerTag
+    public struct SeedTag
     {
 
     }

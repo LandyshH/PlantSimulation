@@ -9,5 +9,5 @@ public struct RootComponent
     public float Lifetime;
     public Vector3 Position;
     public bool IsOxygenLack;
-    public PlantGrowthStage GrowthStage;
+    //public PlantGrowthStage GrowthStage;
 }

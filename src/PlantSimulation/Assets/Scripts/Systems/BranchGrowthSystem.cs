@@ -7,27 +7,15 @@ namespace Assets.Scripts.Systems
 {
     public sealed class BranchGrowthSystem : IEcsRunSystem
     {
-        private readonly EcsWorld _ecsWorld = null;
         private EnvironmentSettings environment;
 
         EcsFilter<BranchComponent> _branchFilter;
 
-        EcsFilter<StemComponent> _stemFilter;
-
         public void Run()
         {
-            ref var stem = ref _stemFilter.Get1(0);
-            
-
             foreach (var i in _branchFilter)
             {
-                /*if (stem.GrowthStage == Enum.PlantGrowthStage.Embryonic || stem.GrowthStage == Enum.PlantGrowthStage.Senile)
-                {
-                    continue;
-                }*/
-
                 ref var branch = ref _branchFilter.Get1(i);
-                //ref var environment = ref _filter.Get2(i);
 
                 branch.Lifetime += 10 * Time.deltaTime;
 

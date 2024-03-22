@@ -5,9 +5,8 @@ namespace Assets.Scripts.Systems
 {
     public sealed class CreateRootSystem : IEcsInitSystem
     {
-        private readonly EcsWorld _ecsWorld = null;
-
-        EcsFilter<SeedComponent> _filter;
+        private readonly EcsWorld _ecsWorld;
+        private StaticData staticData;
 
         public void Init()
         {
@@ -15,12 +14,12 @@ namespace Assets.Scripts.Systems
             var rootEntity = _ecsWorld.NewEntity();
             ref var root = ref rootEntity.Get<RootComponent>();
 
-            ref var seedComponent = ref _filter.Get1(0);
-            //ref var environment = ref _filter.Get2(0);
-
-            root.Position = seedComponent.Position;
+            root.Position = new Vector3();
             root.Lifetime = 0;
-            root.GrowthStage = Enum.PlantGrowthStage.Juvenile;
+
+            staticData.PlantGrowthStage = Enum.PlantGrowthStage.Juvenile;
+
+            staticData.RootSpawned = true;
         }
     }
 }

@@ -37,11 +37,11 @@ public class EcsGamestartup : MonoBehaviour
         _ecsSystems
             .Add(new CreateSeedSystem())
             .Add(new SeedGrowthSystem())
-           // .Add(new SeedAnimationSystem())
+
             .Add(new CreateRootSystem())
             .Add(new RootGrowthSystem())
 
-            //.Add(new CreateStemSystem())
+            .Add(new CreateStemSystem())
             .Add(new StemGrowthSystem())
 
             .Add(new CreateBranchSystem())
@@ -50,7 +50,8 @@ public class EcsGamestartup : MonoBehaviour
 
             .Add(new CreateLeafAndFlowerSystem())
             .Add(new LeafGrowthSystem())
-            .Add(new FlowerGrowthSystem());
+            .Add(new FlowerGrowthSystem())
+            ;
     }
 
     private void AddOneFrames()

@@ -1,14 +1,12 @@
 ﻿using Assets.Scripts.Enum;
 using Assets.Scripts.Services;
 using Leopotam.Ecs;
-using System;
 using UnityEngine;
 
 namespace Assets.Scripts.Systems
 {
     public sealed class SeedGrowthSystem : IEcsRunSystem
     {
-        private readonly EcsWorld _ecsWorld = null;
         private EnvironmentSettings environment;
         private StaticData staticData;
 
@@ -16,30 +14,25 @@ namespace Assets.Scripts.Systems
 
         public void Run()
         {
-            if (staticData.SeedSpawned) return;
+            staticData.PlantGrowthStage = PlantGrowthStage.Embryonic;
 
-            //foreach (var i in _filter)
-            // {
-            ref var seedComponent = ref _filter.Get1(0);
-            ref var seedEntity = ref _filter.GetEntity(0);
+            foreach (var i in _filter)
+            {
+                ref var seedComponent = ref _filter.Get1(i);
 
-            //var destroyed = false;
-            // ref var environment = ref _filter.Get2(i);
+                if (staticData.PlantGrowthStage == PlantGrowthStage.Juvenile)
+                {
+                    return;
+                }
 
-            Debug.Log("Doing " + " " + seedComponent.Stage + " " + seedComponent.Lifetime + " " + seedComponent.Size);
+                Debug.Log("Doing " + " " + seedComponent.Stage + " " + seedComponent.Lifetime + " " + seedComponent.Size);
 
-            //while (!destroyed)
-            //{
                 switch (seedComponent.Stage)
                 {
                     case SeedGrowthStage.Zygote:
-                        //while (seedComponent.Size <= 15f)
-                        //{
-                            seedComponent.Size += GrowthRateCalculator.CalculateGrowthRate(environment) * Time.deltaTime * 5;
-                            seedComponent.Lifetime += Time.deltaTime;
-                            
-                        //    Debug.Log("Doing " + " " + seedComponent.Stage + " " + seedComponent.Lifetime + " " + seedComponent.Size);
-                        //}
+    
+                        seedComponent.Size += GrowthRateCalculator.CalculateGrowthRate(environment) * Time.deltaTime * 5;
+                        seedComponent.Lifetime += Time.deltaTime;
 
                         if (seedComponent.Size > 15f)
                         {
@@ -49,12 +42,9 @@ namespace Assets.Scripts.Systems
                         break;
 
                     case SeedGrowthStage.Proembryo:
-                       // while (seedComponent.Size <= 20f)
-                        //{
-                            seedComponent.Size += GrowthRateCalculator.CalculateGrowthRate(environment) * Time.deltaTime * 5;
-                            seedComponent.Lifetime += Time.deltaTime;
-                       //     Debug.Log("Doing " + " " + seedComponent.Stage + " " + seedComponent.Lifetime + " " + seedComponent.Size);
-                        //}
+
+                        seedComponent.Size += GrowthRateCalculator.CalculateGrowthRate(environment) * Time.deltaTime * 5;
+                        seedComponent.Lifetime += Time.deltaTime;
 
                         if (seedComponent.Size > 20f)
                         {
@@ -62,12 +52,8 @@ namespace Assets.Scripts.Systems
                         }
                         break;
                     case SeedGrowthStage.Globular:
-                        //while (seedComponent.Size <= 25f)
-                        //{
-                            seedComponent.Size += GrowthRateCalculator.CalculateGrowthRate(environment) * Time.deltaTime * 5;
-                            seedComponent.Lifetime += Time.deltaTime;
-                       //     Debug.Log("Doing " + " " + seedComponent.Stage + " " + seedComponent.Lifetime + " " + seedComponent.Size);
-                       // }
+                        seedComponent.Size += GrowthRateCalculator.CalculateGrowthRate(environment) * Time.deltaTime * 5;
+                        seedComponent.Lifetime += Time.deltaTime;
 
                         if (seedComponent.Size > 25f)
                         {
@@ -76,12 +62,8 @@ namespace Assets.Scripts.Systems
                         }
                         break;
                     case SeedGrowthStage.HeartShaped:
-                        //while (seedComponent.Size <= 30f)
-                        //{
-                            seedComponent.Size += GrowthRateCalculator.CalculateGrowthRate(environment) * Time.deltaTime * 5;
-                            seedComponent.Lifetime += Time.deltaTime;
-                          //  Debug.Log("Doing " + " " + seedComponent.Stage + " " + seedComponent.Lifetime + " " + seedComponent.Size);
-                        //}
+                        seedComponent.Size += GrowthRateCalculator.CalculateGrowthRate(environment) * Time.deltaTime * 5;
+                        seedComponent.Lifetime += Time.deltaTime;
 
                         if (seedComponent.Size > 30f)
                         {
@@ -90,14 +72,12 @@ namespace Assets.Scripts.Systems
                         break;
                     case SeedGrowthStage.TorpedoShaped:
                         seedComponent.Lifetime += Time.deltaTime;
-                        Debug.Log("Seed: end " + "Lifetime: " + seedComponent.Lifetime + " Size: " + seedComponent.Size);
-                        seedEntity.Destroy();
-                        staticData.SeedSpawned = true;
+                        //seedEntity.Destroy();
 
-                    //destroyed = true;
-                    break;
+                        staticData.PlantGrowthStage = PlantGrowthStage.Juvenile;
+                        break;
 
-               // }
+                }
             }
         }
     }

@@ -5,7 +5,7 @@ namespace Assets.Scripts.Systems
 {
     public sealed class CreateStemSystem : IEcsInitSystem
     {
-        private readonly EcsWorld _ecsWorld = null;
+        private readonly EcsWorld _ecsWorld;
         private StaticData staticData;
 
         EcsFilter<RootComponent> _filter;
@@ -18,13 +18,10 @@ namespace Assets.Scripts.Systems
             var stemEntity = _ecsWorld.NewEntity();
             ref var stem = ref stemEntity.Get<StemComponent>();
 
-            //ref var environment = ref _filter.Get2(0);
-
             stem.Lifetime = 0;
             stem.Position = rootComponent.Position;
             stem.Height = 15;
             stem.Width = 5;
-            stem.GrowthStage = Enum.PlantGrowthStage.Juvenile;
         }
     }
 }

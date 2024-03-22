@@ -13,4 +13,6 @@ MonoBehaviour:
   m_Name: Config
   m_EditorClassIdentifier: 
   PlantPrefab: {fileID: 1641309589632535731, guid: 84a9713418710a44da7e0f61162540d8, type: 3}
-  SeedSpawned: 1
+  SeedSpawned: 0
+  RootSpawned: 0
+  PlantGrowthStage: 0

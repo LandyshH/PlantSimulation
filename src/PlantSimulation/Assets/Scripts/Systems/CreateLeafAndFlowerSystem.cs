@@ -1,16 +1,13 @@
-﻿using Assets.Scripts.Services;
-using Leopotam.Ecs;
-using Palmmedia.ReportGenerator.Core.Parser.Analysis;
-using System;
+﻿using Leopotam.Ecs;
 using UnityEngine;
-using static UnityEditor.Progress;
 
 namespace Assets.Scripts.Systems
 {
     public sealed class CreateLeafAndFlowerSystem : IEcsRunSystem
     {
-        private readonly EcsWorld _ecsWorld = null;
+        private readonly EcsWorld _ecsWorld;
         private EnvironmentSettings environment;
+        private readonly StaticData _staticData;
 
         EcsFilter<StemComponent> _filter;
         EcsFilter<BranchComponent> _branchFilter;
@@ -23,12 +20,12 @@ namespace Assets.Scripts.Systems
                 ref var stem = ref _filter.Get1(0);
                // ref var environment = ref _filter.Get2(i);
 
-                if (stem.GrowthStage == Enum.PlantGrowthStage.Senile || stem.GrowthStage == Enum.PlantGrowthStage.Embryonic)
+                if (_staticData.PlantGrowthStage == Enum.PlantGrowthStage.Senile || _staticData.PlantGrowthStage == Enum.PlantGrowthStage.Embryonic)
                 {
                     continue;
                 }
 
-                Debug.Log("Spawn flower or leaf");
+               // Debug.Log("Spawn flower or leaf");
 
                 foreach (var j in _branchFilter)
                 {
@@ -50,7 +47,7 @@ namespace Assets.Scripts.Systems
                         continue;
                     }
 
-                    if (stem.GrowthStage == Enum.PlantGrowthStage.Juvenile)
+                    if (_staticData.PlantGrowthStage == Enum.PlantGrowthStage.Juvenile)
                     {
                         var leafEntity = CreateLeaf(position);
                         continue;

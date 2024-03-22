@@ -7,8 +7,8 @@ namespace Assets.Scripts.Systems
 {
     public sealed class FlowerGrowthSystem : IEcsRunSystem
     {
-        private readonly EcsWorld _ecsWorld = null;
         private EnvironmentSettings environment;
+        private readonly StaticData staticData;
 
         EcsFilter<FlowerComponent> _flowerFilter;
         EcsFilter<StemComponent> _stemFilter;
@@ -19,7 +19,7 @@ namespace Assets.Scripts.Systems
 
             foreach (var i in _flowerFilter)
             {
-                if (stem.GrowthStage != Enum.PlantGrowthStage.MaturityAndReproduction)
+                if (staticData.PlantGrowthStage != Enum.PlantGrowthStage.MaturityAndReproduction)
                 {
                     continue;
                 }
@@ -28,8 +28,6 @@ namespace Assets.Scripts.Systems
 
                 Debug.Log("Flower grow " + flower.Size + " " + flower.Lifetime);
                 ref var entity = ref _flowerFilter.GetEntity(i);
-
-                //ref var environment = ref _filter.Get2(i);
 
                 if (environment.Temperature != Enum.Temperature.Optimal)
                 {

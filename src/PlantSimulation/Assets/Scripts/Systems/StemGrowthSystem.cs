@@ -7,7 +7,6 @@ namespace Assets.Scripts.Systems
 {
     public sealed class StemGrowthSystem : IEcsRunSystem
     {
-        private readonly EcsWorld _ecsWorld = null;
         private EnvironmentSettings environment;
         private StaticData staticData;
 
@@ -27,18 +26,10 @@ namespace Assets.Scripts.Systems
             {
                 ref var stem = ref _stemFilter.Get1(i);
 
-                stem.GrowthStage = root.GrowthStage;
-                Debug.Log("Stem grow " + stem.GrowthStage + stem.Height + " " + stem.Width + " " + stem.Lifetime);
-
-
-                if (stem.GrowthStage == PlantGrowthStage.Senile || stem.GrowthStage == PlantGrowthStage.Embryonic)
+                if (staticData.PlantGrowthStage == PlantGrowthStage.Senile || staticData.PlantGrowthStage == PlantGrowthStage.Embryonic)
                 {
                     continue;
                 }
-
-                //ref var stemEntity = ref _filter.GetEntity(i);
-
-                //ref var environment = ref _filter.Get2(i);
 
                 stem.Lifetime += Time.deltaTime * 10;
 
