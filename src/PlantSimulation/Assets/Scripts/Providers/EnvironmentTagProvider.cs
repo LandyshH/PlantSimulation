@@ -5,10 +5,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Voody.UniLeo;
-
 namespace Assets.Scripts.Providers
 {
-    public class PlayerTagProvider : MonoProvider<SeedTag>
+    public class EnvironmentTagProvider : MonoProvider<EnvironmentWindowTag>
     {
     }
 }

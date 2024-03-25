@@ -5,9 +5,8 @@ using UnityEngine;
 [CreateAssetMenu]
 public class StaticData : ScriptableObject
 {
-    public GameObject PlantPrefab;
-    public bool SeedSpawned = false;
-    public bool RootSpawned = false;
+    public GameObject SeedPrefab;
     public PlantGrowthStage PlantGrowthStage;
+    public bool GoToNextStage;
 }
 

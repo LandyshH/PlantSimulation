@@ -14,17 +14,23 @@ namespace Assets.Scripts.Systems
 
         public void Run()
         {
-            staticData.PlantGrowthStage = PlantGrowthStage.Embryonic;
+            if (staticData.PlantGrowthStage != PlantGrowthStage.Embryonic)
+            {
+                return;
+            }
+
+            if (staticData.GoToNextStage)
+            {
+                return;
+            }
+
+            //staticData.PlantGrowthStage = PlantGrowthStage.Embryonic;
 
             foreach (var i in _filter)
             {
                 ref var seedComponent = ref _filter.Get1(i);
-
-                if (staticData.PlantGrowthStage == PlantGrowthStage.Juvenile)
-                {
-                    return;
-                }
-
+                
+                
                 Debug.Log("Doing " + " " + seedComponent.Stage + " " + seedComponent.Lifetime + " " + seedComponent.Size);
 
                 switch (seedComponent.Stage)
@@ -72,11 +78,8 @@ namespace Assets.Scripts.Systems
                         break;
                     case SeedGrowthStage.TorpedoShaped:
                         seedComponent.Lifetime += Time.deltaTime;
-                        //seedEntity.Destroy();
-
-                        staticData.PlantGrowthStage = PlantGrowthStage.Juvenile;
+                        staticData.GoToNextStage = true;
                         break;
-
                 }
             }
         }

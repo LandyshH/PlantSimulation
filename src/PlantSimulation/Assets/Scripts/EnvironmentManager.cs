@@ -18,35 +18,29 @@ public class EnvironmentManager : MonoBehaviour
     public void ChangeTemperatureValue()
     {
         environmentSettings.Temperature = (Temperature) TemperatureDropdown.value;
-        Debug.Log("Change temp: " + environmentSettings.Temperature.ToString());
     }
 
     public void ChangeWaterValue()
     {
         environmentSettings.Water = (Water) WaterDropdown.value;
-        Debug.Log("Change water: " + environmentSettings.Water.ToString());
     }
 
     public void ChangeMineralsValue()
     {
         environmentSettings.Minerals = (Minerals) MineralsDropdown.value;
-        Debug.Log("Change minerals: " + environmentSettings.Minerals.ToString());
     }
     public void ChangeLightValue()
     {
         environmentSettings.Light = (LightColor) LightDropdown.value;
-        Debug.Log("Change light: " + environmentSettings.Light.ToString());
     }
 
     public void ChangeOxygenValue()
     {
         environmentSettings.Oxygen = (Oxygen) OxygenDropdown.value;
-        Debug.Log("Change oxygen: " + environmentSettings.Oxygen.ToString());
     }
 
     public void ChangeCarbonDioxideValue()
     {
         environmentSettings.CarbonDioxide = (CarbonDioxide) CarbonDioxideDropdown.value;
-        Debug.Log("Change carbon dioxide: " + environmentSettings.CarbonDioxide.ToString());
     }
 }

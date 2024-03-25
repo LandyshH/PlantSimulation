@@ -16,10 +16,6 @@ namespace Assets.Scripts.Systems
 
             root.Position = new Vector3();
             root.Lifetime = 0;
-
-            staticData.PlantGrowthStage = Enum.PlantGrowthStage.Juvenile;
-
-            staticData.RootSpawned = true;
         }
     }
 }

@@ -12,18 +12,11 @@ namespace Assets.Scripts.Systems
 
         public void Init()
         {
-            if (staticData.SeedSpawned)
-            {
-                return;
-            }
-
             Debug.Log("Spawn seed");
-
-            staticData.SeedSpawned = true;
 
             var position = new Vector3();
 
-            var plant = Object.Instantiate(staticData.PlantPrefab, position, Quaternion.identity);
+            var plant = Object.Instantiate(staticData.SeedPrefab, position, Quaternion.identity);
 
             var seedEntity = _ecsWorld.NewEntity();
             seedEntity.Replace(new SeedComponent
@@ -33,7 +26,10 @@ namespace Assets.Scripts.Systems
                 Stage = SeedGrowthStage.Zygote,
                 Lifetime = 0,
                 gameObject = plant
-            }) ; 
+            }) ;
+
+            staticData.PlantGrowthStage = PlantGrowthStage.Embryonic;
+            staticData.GoToNextStage = false;
             //ref var seedComponent = ref seedEntity.Get<SeedComponent>();
 
 

@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Voody.UniLeo;
 
-namespace Assets.Scripts.Providers
+namespace Assets.Scripts.Tags
 {
-    public class EnvironmentProvider : MonoProvider<EnvironmentComponent>
+    [Serializable]
+    public struct EnvironmentWindowTag
     {
     }
 }

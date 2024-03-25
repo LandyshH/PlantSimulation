@@ -11,25 +11,22 @@ namespace Assets.Scripts.Systems
         private StaticData staticData;
 
         EcsFilter<StemComponent> _stemFilter;
-        EcsFilter<RootComponent> _rootFilter;
 
         public void Run()
         {
-            if (!staticData.SeedSpawned)
+            if (staticData.GoToNextStage)
             {
                 return;
             }
 
-            ref var root = ref _rootFilter.Get1(0);
+            if (staticData.PlantGrowthStage == PlantGrowthStage.Senile || staticData.PlantGrowthStage == PlantGrowthStage.Embryonic)
+            {
+                return;
+            }
 
             foreach (var i in _stemFilter)
             {
                 ref var stem = ref _stemFilter.Get1(i);
-
-                if (staticData.PlantGrowthStage == PlantGrowthStage.Senile || staticData.PlantGrowthStage == PlantGrowthStage.Embryonic)
-                {
-                    continue;
-                }
 
                 stem.Lifetime += Time.deltaTime * 10;
 
@@ -48,8 +45,8 @@ namespace Assets.Scripts.Systems
                         {
                             stem.Width -= 1;
                         }
-                        
-                        continue;
+
+                        return;
                     }
 
                     if (environment.Temperature == Temperature.Min
@@ -58,7 +55,8 @@ namespace Assets.Scripts.Systems
                     {
                         stem.Height += GrowthRateCalculator.CalculateGrowthRate(environment) / 10;
                         stem.Width += GrowthRateCalculator.CalculateGrowthRate(environment) / 5;
-                        continue;
+
+                        return;
                     }
 
                     if (environment.Light == LightColor.Blue)

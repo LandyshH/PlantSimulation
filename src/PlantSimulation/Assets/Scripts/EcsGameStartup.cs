@@ -1,4 +1,4 @@
-using Assets.Scripts;
+using Assets.Scripts.Components.Events;
 using Assets.Scripts.Systems;
 using Leopotam.Ecs;
 using UnityEngine;
@@ -6,35 +6,42 @@ using Voody.UniLeo;
 
 public class EcsGamestartup : MonoBehaviour
 {
-    public StaticData _configuration;
-    public EnvironmentSettings _environmentSettings;
-    private EcsWorld _ecsWorld;
-    private EcsSystems _ecsSystems;
+    public StaticData configuration;
+    public EnvironmentSettings environmentSettings;
+    public UI ui;
+    private EcsWorld ecsWorld;
+    private EcsSystems systems;
 
     private void Start()
     {
-        _ecsWorld = new EcsWorld();
-        _ecsSystems = new EcsSystems(_ecsWorld);
+        ecsWorld = new EcsWorld();
+        systems = new EcsSystems(ecsWorld);
 
-        _ecsSystems.ConvertScene();
+        systems.ConvertScene();
 
         AddInjections();
         AddOneFrames();
         AddSystems();
 
-        _ecsSystems.Init();
+        systems.Init();
     }
 
     private void AddInjections()
     {
-        _ecsSystems
-            .Inject(_configuration)
-            .Inject(_environmentSettings);
+        systems
+            .Inject(configuration)
+            .Inject(environmentSettings)
+            .Inject(ui)
+            ;
     }
 
     private void AddSystems()
     {
-        _ecsSystems
+        systems
+            .Add(new GoToNextStageSendEventSystem())
+            .Add(new GoToNextStageSystem())
+            .Add(new InputSystem())
+
             .Add(new CreateSeedSystem())
             .Add(new SeedGrowthSystem())
 
@@ -56,24 +63,24 @@ public class EcsGamestartup : MonoBehaviour
 
     private void AddOneFrames()
     {
-
+        systems.OneFrame<NextStageGrowEvent>();
     }
 
     private void Update()
     {
-        _ecsSystems.Run();
+        systems.Run();
     }
 
     private void OnDestroy()
     {
-        if ( _ecsSystems == null ) 
+        if ( systems == null ) 
         {
             return; 
         }
 
-        _ecsSystems.Destroy();
-        _ecsSystems = null;
-        _ecsWorld.Destroy();
-        _ecsWorld = null;
+        systems.Destroy();
+        systems = null;
+        ecsWorld.Destroy();
+        ecsWorld = null;
     }
 }

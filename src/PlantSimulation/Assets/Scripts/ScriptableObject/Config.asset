@@ -12,7 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa1a9e3f42e92bd4aa2ea5af41cd361b, type: 3}
   m_Name: Config
   m_EditorClassIdentifier: 
-  PlantPrefab: {fileID: 1641309589632535731, guid: 84a9713418710a44da7e0f61162540d8, type: 3}
-  SeedSpawned: 0
-  RootSpawned: 0
-  PlantGrowthStage: 0
+  SeedPrefab: {fileID: 1641309589632535731, guid: 84a9713418710a44da7e0f61162540d8, type: 3}
+  PlantGrowthStage: 3
+  GoToNextStage: 0

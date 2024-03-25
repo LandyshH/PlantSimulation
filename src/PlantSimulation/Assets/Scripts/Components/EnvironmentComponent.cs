@@ -10,6 +10,4 @@ public struct EnvironmentComponent
     public Minerals Minerals;
     public Oxygen Oxygen;
     public CarbonDioxide CarbonDioxide;
-
-    // избыток воды -- больше углекислого газа
 }
