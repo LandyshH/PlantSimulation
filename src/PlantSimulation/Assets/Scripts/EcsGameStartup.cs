@@ -38,6 +38,7 @@ public class EcsGamestartup : MonoBehaviour
     private void AddSystems()
     {
         systems
+            .Add(new CreateBlockSystem())
             .Add(new GoToNextStageSendEventSystem())
             .Add(new GoToNextStageSystem())
             .Add(new InputSystem())

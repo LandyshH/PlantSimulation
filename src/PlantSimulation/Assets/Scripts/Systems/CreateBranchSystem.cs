@@ -14,7 +14,7 @@ namespace Assets.Scripts.Systems
         private readonly EcsWorld _ecsWorld;
         private readonly StaticData _staticData;
 
-        EcsFilter<StemComponent> _filter;
+        private readonly EcsFilter<StemComponent>.Exclude<BlockCreateDuration> _filter;
 
         public void Run()
         {
@@ -22,7 +22,8 @@ namespace Assets.Scripts.Systems
             {
                 ref var stem = ref _filter.Get1(i);
 
-                if (_staticData.PlantGrowthStage != Enum.PlantGrowthStage.Senile && _staticData.PlantGrowthStage != Enum.PlantGrowthStage.Embryonic)
+                if (_staticData.PlantGrowthStage != Enum.PlantGrowthStage.Senile 
+                    && _staticData.PlantGrowthStage != Enum.PlantGrowthStage.Embryonic)
                 {
                     var branchEntity = _ecsWorld.NewEntity();
                     ref var branch = ref branchEntity.Get<BranchComponent>();
@@ -32,6 +33,8 @@ namespace Assets.Scripts.Systems
                     branch.Width = 3;
 
                     branch.Position = new Vector3(stem.Position.x, stem.Position.y, stem.Height - 10);
+
+                    branchEntity.Get<BlockCreateDuration>().Timer = 5f;
                 }
             }
         }

@@ -6,7 +6,6 @@ namespace Assets.Scripts.Systems
     public sealed class CreateStemSystem : IEcsInitSystem
     {
         private readonly EcsWorld _ecsWorld;
-        private StaticData staticData;
 
         EcsFilter<RootComponent> _filter;
 

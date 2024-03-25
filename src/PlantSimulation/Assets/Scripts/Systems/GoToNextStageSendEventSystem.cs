@@ -6,7 +6,6 @@ namespace Assets.Scripts.Systems
     public class GoToNextStageSendEventSystem : IEcsRunSystem
     {
         private readonly StaticData _staticData;
-        private readonly EcsWorld _ecsWorld;
         private readonly EcsFilter<EnvironmentWindowTag> _filter;
 
         public void Run()
@@ -21,8 +20,6 @@ namespace Assets.Scripts.Systems
                 ref var entity = ref _filter.GetEntity(i);
                 entity.Get<NextStageGrowEvent>();
             }
-
-            // _ecsWorld.NewEntity().Get<NextStageGrowEvent>();
         }
     }
 }

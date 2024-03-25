@@ -9,73 +9,76 @@ namespace Assets.Scripts.Systems
         private EnvironmentSettings environment;
         private readonly StaticData _staticData;
 
-        EcsFilter<StemComponent> _filter;
-        EcsFilter<BranchComponent> _branchFilter;
+        private readonly EcsFilter<BranchComponent>
+            .Exclude<BlockCreateDuration> _filter;
 
-        //добавить таймер
         public void Run()
         {
-            foreach(var i in _filter)
-            {
-                ref var stem = ref _filter.Get1(0);
-               // ref var environment = ref _filter.Get2(i);
 
-                if (_staticData.PlantGrowthStage == Enum.PlantGrowthStage.Senile || _staticData.PlantGrowthStage == Enum.PlantGrowthStage.Embryonic)
+            if (_staticData.PlantGrowthStage == Enum.PlantGrowthStage.Senile
+            || _staticData.PlantGrowthStage == Enum.PlantGrowthStage.Embryonic
+            || _staticData.GoToNextStage)
+            {
+                return;
+            }
+
+
+            foreach (var i in _filter)
+            {
+                ref var branchEntity = ref _filter.GetEntity(i);
+                ref var branch = ref _filter.Get1(i);
+
+                if (branch.HasLeafOrFlower)
                 {
-                    continue;
+                    return;
                 }
 
-               // Debug.Log("Spawn flower or leaf");
+                var rnd = new System.Random();
+                var random = rnd.Next(1, 3);
+                // stem height
+                var position = new Vector3(0, 0, branch.Position.z);
 
-                foreach (var j in _branchFilter)
+                if (environment.Temperature == Enum.Temperature.Min && random == 1)
                 {
-                    ref var branch = ref _branchFilter.Get1(j);
+                    Debug.Log("Temperature min: no leaf or flower");
+                    return;
+                }
 
-                    if (branch.HasLeafOrFlower)
+                if (_staticData.PlantGrowthStage == Enum.PlantGrowthStage.Juvenile)
+                {
+                    CreateLeaf(position);
+                    return;
+                }
+
+                if (environment.Minerals == Enum.Minerals.Optimal)
+                {
+                    if (random == 1 || random == 2)
                     {
-                        continue;
-                    }
-
-                    var rnd = new System.Random();
-                    var random = rnd.Next(1, 3);
-                    // stem height
-                    var position = new Vector3(stem.Position.x, stem.Position.y, branch.Position.z);
-
-                    if (environment.Temperature == Enum.Temperature.Min && random == 1)
-                    {
-                        Debug.Log("Temperature min: no leaf or flower");
-                        continue;
-                    }
-
-                    if (_staticData.PlantGrowthStage == Enum.PlantGrowthStage.Juvenile)
-                    {
-                        var leafEntity = CreateLeaf(position);
-                        continue;
-                    }
-
-                    if (environment.Minerals == Enum.Minerals.Optimal)
-                    {
-                        if (random == 1 || random == 2)
-                        {
-                            CreateLeaf(position);
-                        }
-                        else
-                        {
-                            CreateFlower(position);
-                        }
+                        CreateLeaf(position);
                     }
                     else
                     {
-                        if (random == 1 || random == 2)
-                        {
-                            CreateFlower(position);
-                        }
-                        else
-                        {
-                            CreateLeaf(position);
-                        }
+                        CreateFlower(position);
                     }
                 }
+                else
+                {
+                    if (random == 1 || random == 2)
+                    {
+                        CreateFlower(position);
+                    }
+                    else
+                    {
+                        CreateLeaf(position);
+                    }
+                }
+
+                branch.HasLeafOrFlower = true;
+
+                // spawn in 5 sec
+                branchEntity.Get<BlockCreateDuration>().Timer = 5f;
+
+                Debug.Log("Spawn flower or leaf");
             }
         }
 

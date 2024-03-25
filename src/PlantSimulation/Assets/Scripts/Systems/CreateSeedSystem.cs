@@ -1,5 +1,4 @@
 ﻿using Assets.Scripts.Enum;
-using Assets.Scripts.Providers;
 using Leopotam.Ecs;
 using UnityEngine;
 
@@ -9,6 +8,8 @@ namespace Assets.Scripts.Systems
     {
         private readonly EcsWorld _ecsWorld;
         private StaticData staticData;
+        private readonly UI ui;
+        private EnvironmentSettings environment;
 
         public void Init()
         {
@@ -30,17 +31,14 @@ namespace Assets.Scripts.Systems
 
             staticData.PlantGrowthStage = PlantGrowthStage.Embryonic;
             staticData.GoToNextStage = false;
-            //ref var seedComponent = ref seedEntity.Get<SeedComponent>();
+            ui.environmentWindowScreen.SetActive(false);
 
-
-           // ref var environment = ref seedEntity.Get<EnvironmentComponent>();
-
-            /* environment.Light = LightColor.Darkness;
+            environment.Light = LightColor.Sun;
             environment.Water = Water.Optimal;
-            environment.Temperature = Temperature.Min;
+            environment.Temperature = Temperature.Optimal;
             environment.CarbonDioxide = CarbonDioxide.Optimal;
             environment.Oxygen = Oxygen.Optimal;
-            environment.Minerals = Minerals.Optimal; */
+            environment.Minerals = Minerals.Optimal;
         }
     }
 }

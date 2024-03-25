@@ -24,8 +24,6 @@ namespace Assets.Scripts.Systems
                 return;
             }
 
-            //staticData.PlantGrowthStage = PlantGrowthStage.Embryonic;
-
             foreach (var i in _filter)
             {
                 ref var seedComponent = ref _filter.Get1(i);

@@ -6,7 +6,6 @@ namespace Assets.Scripts.Systems
     public sealed class CreateRootSystem : IEcsInitSystem
     {
         private readonly EcsWorld _ecsWorld;
-        private StaticData staticData;
 
         public void Init()
         {
