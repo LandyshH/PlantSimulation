@@ -28,7 +28,7 @@ namespace Assets.Scripts.Systems
             {
                 ref var root = ref _rootFilter.Get1(i);
 
-                Debug.Log("Root grow " + i + " " + staticData.PlantGrowthStage + " " + root.Size + " " + root.Lifetime);
+                //Debug.Log("Root grow " + i + " " + staticData.PlantGrowthStage + " " + root.Size + " " + root.Lifetime);
 
                 if (environment.Oxygen == Oxygen.Lack && staticData.PlantGrowthStage == PlantGrowthStage.Juvenile)
                 {

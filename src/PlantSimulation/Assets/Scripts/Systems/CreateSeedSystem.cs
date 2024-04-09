@@ -13,11 +13,11 @@ namespace Assets.Scripts.Systems
 
         public void Init()
         {
-            Debug.Log("Spawn seed");
+            //Debug.Log("Spawn seed");
 
             var position = new Vector3();
 
-            var plant = Object.Instantiate(staticData.SeedPrefab, position, Quaternion.identity);
+           // var plant = Object.Instantiate(staticData.SeedPrefab, position, Quaternion.identity);
 
             var seedEntity = _ecsWorld.NewEntity();
             seedEntity.Replace(new SeedComponent
@@ -26,7 +26,7 @@ namespace Assets.Scripts.Systems
                 Size = 10,
                 Stage = SeedGrowthStage.Zygote,
                 Lifetime = 0,
-                gameObject = plant
+               // gameObject = plant
             }) ;
 
             staticData.PlantGrowthStage = PlantGrowthStage.Embryonic;

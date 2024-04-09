@@ -12,7 +12,7 @@ namespace Assets.Scripts.Systems
         public void Init()
         {
             ref var rootComponent = ref _filter.Get1(0);
-            Debug.Log("Create stem");
+            //Debug.Log("Create stem");
 
             var stemEntity = _ecsWorld.NewEntity();
             ref var stem = ref stemEntity.Get<StemComponent>();

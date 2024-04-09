@@ -26,7 +26,7 @@ namespace Assets.Scripts.Systems
 
                 ref var flower = ref _flowerFilter.Get1(i);
 
-                Debug.Log("Flower grow " + flower.Size + " " + flower.Lifetime);
+                //Debug.Log("Flower grow " + flower.Size + " " + flower.Lifetime);
                 ref var entity = ref _flowerFilter.GetEntity(i);
 
                 if (environment.Temperature != Enum.Temperature.Optimal)

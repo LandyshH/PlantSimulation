@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d8dbde629d7c97e47a1086fc99874dcb, type: 3}
+  m_Name: Sunfl
+  m_EditorClassIdentifier: 
+  StemPrefab: {fileID: -5568371526223589888, guid: dd92e0d47d7c61a4e9845c03fad339f0, type: 3}
+  DryStemPrefab: {fileID: -5568371526223589888, guid: dd92e0d47d7c61a4e9845c03fad339f0, type: 3}
+  LeafPrefab: {fileID: 8416272007918961125, guid: dd92e0d47d7c61a4e9845c03fad339f0, type: 3}
+  DarkLeafPrefab: {fileID: 8416272007918961125, guid: dd92e0d47d7c61a4e9845c03fad339f0, type: 3}
+  PetalPrefab: {fileID: -7029948723529949830, guid: dd92e0d47d7c61a4e9845c03fad339f0, type: 3}
+  SeedsPrefab: {fileID: 1641309589632535731, guid: 84a9713418710a44da7e0f61162540d8, type: 3}
+  BudPrefab: {fileID: 8513859187771203891, guid: dd92e0d47d7c61a4e9845c03fad339f0, type: 3}

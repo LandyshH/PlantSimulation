@@ -9,7 +9,7 @@ namespace Assets.Scripts.Systems
 
         public void Init()
         {
-            Debug.Log("Create root");
+            //Debug.Log("Create root");
             var rootEntity = _ecsWorld.NewEntity();
             ref var root = ref rootEntity.Get<RootComponent>();
 
