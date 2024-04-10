@@ -29,8 +29,8 @@ namespace Assets.Scripts.Systems
                     ref var branch = ref branchEntity.Get<BranchComponent>();
 
                     branch.Lifetime = 0;
-                    branch.Height = 5;
-                    branch.Width = 3;
+                    branch.Height = 0;
+                    branch.Width = 0;
 
                     branch.Position = new Vector3(stem.Position.x, stem.Position.y, stem.Height - 10);
 

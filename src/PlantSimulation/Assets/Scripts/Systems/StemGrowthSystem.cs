@@ -9,6 +9,7 @@ namespace Assets.Scripts.Systems
     {
         private EnvironmentSettings environment;
         private StaticData staticData;
+        private PlantData plantData;
 
         EcsFilter<StemComponent> _stemFilter;
 
@@ -71,13 +72,10 @@ namespace Assets.Scripts.Systems
 
                     stem.Height += GrowthRateCalculator.CalculateGrowthRate(environment) / 10;
                     stem.Width += GrowthRateCalculator.CalculateGrowthRate(environment) / 5;
-
-                    if (stem.Width <= 1)
-                    {
-                        //usohlo
-                    }
                 }
 
+                plantData.stemWidth += stem.Width;
+                plantData.stemHeight += stem.Height;
             }
         }
     }

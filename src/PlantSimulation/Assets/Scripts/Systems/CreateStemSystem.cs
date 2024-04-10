@@ -17,10 +17,10 @@ namespace Assets.Scripts.Systems
             var stemEntity = _ecsWorld.NewEntity();
             ref var stem = ref stemEntity.Get<StemComponent>();
 
-            stem.Lifetime = 0;
+            /*stem.Lifetime = 0;
             stem.Position = rootComponent.Position;
-            stem.Height = 15;
-            stem.Width = 5;
+            stem.Height = 0;
+            stem.Width = 0;*/
         }
     }
 }

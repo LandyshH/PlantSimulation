@@ -7,6 +7,7 @@ namespace Assets.Scripts.Systems
     public sealed class LeafGrowthSystem : IEcsRunSystem
     {
         private EnvironmentSettings environment;
+        private PlantData plantData;
 
         EcsFilter<LeafComponent> _leafFilter;
         EcsFilter<StemComponent> _stemFilter;

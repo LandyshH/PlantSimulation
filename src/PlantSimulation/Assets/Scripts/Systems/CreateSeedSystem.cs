@@ -33,12 +33,12 @@ namespace Assets.Scripts.Systems
             staticData.GoToNextStage = false;
             ui.environmentWindowScreen.SetActive(false);
 
-            environment.Light = LightColor.Sun;
+            /*environment.Light = LightColor.Sun;
             environment.Water = Water.Optimal;
             environment.Temperature = Temperature.Optimal;
             environment.CarbonDioxide = CarbonDioxide.Optimal;
             environment.Oxygen = Oxygen.Optimal;
-            environment.Minerals = Minerals.Optimal;
+            environment.Minerals = Minerals.Optimal;*/
         }
     }
 }

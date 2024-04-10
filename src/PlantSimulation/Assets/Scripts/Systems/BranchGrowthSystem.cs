@@ -59,14 +59,8 @@ namespace Assets.Scripts.Systems
 
                     branch.Height += GrowthRateCalculator.CalculateGrowthRate(environment) / 15;
                     branch.Width += GrowthRateCalculator.CalculateGrowthRate(environment) / 10;
-
-                    if (branch.Width <= 1)
-                    {
-                        //usohlo
-                    }
                 }
 
-                //Debug.Log("Branch grow " + branch.Height + " " + branch.Width + " " + branch.Lifetime);
             }
         }
     }

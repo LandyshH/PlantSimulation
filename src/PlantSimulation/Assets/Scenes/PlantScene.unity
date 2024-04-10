@@ -2622,8 +2622,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 644493857}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 198, y: 163, z: 0}
+  m_LocalScale: {x: 2, y: 2, z: 2}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -2641,14 +2641,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5667582c58fccc742a79f6e6ffb016ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stemHeight: 6
+  stemHeight: 7
   stemWidth: 3
   leafWidth: 20
   leafHeight: 20
-  leafCount: 2
+  leafCount: 5
   petalCount: 15
   leafAppearance: 2
   stemAppearance: 0
+  Stage: 1
   sunflowerObjects: {fileID: 11400000, guid: f8515b0fb97fa0043aec6456901448ca, type: 2}
 --- !u!1 &647805404
 GameObject:

@@ -11,8 +11,6 @@ namespace Assets.Scripts.Systems
             foreach (var i in _filter)
             {
                 ref var seedComponent = ref _filter.Get1(i);
-
-                
             }
         }
     }
