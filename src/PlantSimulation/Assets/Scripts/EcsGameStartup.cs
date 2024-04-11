@@ -62,9 +62,10 @@ public class EcsGamestartup : MonoBehaviour
             .Add(new BranchGrowthSystem())
 
 
-            .Add(new CreateLeafAndFlowerSystem())
+            .Add(new CreateLeafSystem())
             .Add(new LeafGrowthSystem())
             .Add(new FlowerGrowthSystem())
+            .Add(new LeafGrowthAnimationSystem());
             ;
     }
 

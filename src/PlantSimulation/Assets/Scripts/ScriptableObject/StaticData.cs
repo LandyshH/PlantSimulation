@@ -8,5 +8,6 @@ public class StaticData : ScriptableObject
     public GameObject SeedPrefab;
     public PlantGrowthStage PlantGrowthStage;
     public bool GoToNextStage;
+    public float StemHeightDiff;
 }
 

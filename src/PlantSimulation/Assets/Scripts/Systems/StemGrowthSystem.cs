@@ -9,7 +9,6 @@ namespace Assets.Scripts.Systems
     {
         private EnvironmentSettings environment;
         private StaticData staticData;
-        //private PlantData plantData;
 
         EcsFilter<StemComponent> _stemFilter;
 
@@ -24,58 +23,35 @@ namespace Assets.Scripts.Systems
             {
                 return;
             }
-
+            //уточнить логику роста
             foreach (var i in _stemFilter)
             {
                 ref var stem = ref _stemFilter.Get1(i);
 
                 stem.Lifetime += Time.deltaTime * 10;
 
-                if (environment.CarbonDioxide != CarbonDioxide.Excess)
+                if (environment.Temperature == Temperature.Max || environment.Water == Water.Lack)
                 {
-                    if (environment.Temperature == Temperature.Max || environment.Water == Water.Lack)
+                    if (environment.Temperature == Temperature.Max)
                     {
-                        stem.Height += GrowthRateCalculator.CalculateGrowthRate(environment) / 50;
-
-                        if (environment.Temperature == Temperature.Max)
-                        {
-                            stem.Width -= 0.1f;
-                        }
-
-                        if (environment.Water == Water.Lack)
-                        {
-                            stem.Width -= 0.1f;
-                        }
-
-                        return;
+                        stem.Width -= 0.1f;
                     }
 
-                    if (environment.Temperature == Temperature.Min
-                        || environment.Oxygen == Oxygen.Lack || environment.Oxygen == Oxygen.Excess
-                        || environment.Light == LightColor.Darkness)
+                    if (environment.Water == Water.Lack)
                     {
-                        stem.Height += GrowthRateCalculator.CalculateGrowthRate(environment) / 50;
-                        stem.Width += GrowthRateCalculator.CalculateGrowthRate(environment) / 60;
-
-                        return;
+                        stem.Width -= 0.1f;
                     }
-
-                    if (environment.Light == LightColor.Blue)
-                    {
-                        stem.Width += GrowthRateCalculator.CalculateGrowthRate(environment) / 60;
-                    }
-
-                    if (environment.Light == LightColor.Red)
-                    {
-                        stem.Height += GrowthRateCalculator.CalculateGrowthRate(environment) / 50;
-                    }
-
-                    stem.Height += GrowthRateCalculator.CalculateGrowthRate(environment) / 50;
-                    stem.Width += GrowthRateCalculator.CalculateGrowthRate(environment) / 60;
                 }
 
-                /*plantData.stemWidth += stem.Width;
-                plantData.stemHeight += stem.Height;*/
+                staticData.StemHeightDiff = GrowthRateCalculator.CalculateGrowthRate(environment) / 50;
+
+                if (environment.CarbonDioxide != CarbonDioxide.Excess)
+                {
+                    staticData.StemHeightDiff = 0;
+                }
+
+                stem.Height += staticData.StemHeightDiff;
+                stem.Width += GrowthRateCalculator.CalculateGrowthRate(environment) / 60;
             }
         }
     }

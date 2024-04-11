@@ -1,4 +1,5 @@
 ﻿using Assets.Scripts.ProceduralGeneration.Sunflower.ScriptableObjects;
+using Assets.Scripts.Tags;
 using Leopotam.Ecs;
 using System.Linq;
 using UnityEngine;
@@ -27,13 +28,36 @@ namespace Assets.Scripts.Systems
             stem.Width = 3;
 
             var plant = GameObject.FindGameObjectsWithTag("Plant").FirstOrDefault();
-
             //var stemGO = proceduralSunflower.CreateStem(stem.Width, stem.Height, plant.transform);
 
             var stemGO = Object.Instantiate(sunflowerObjects.StemPrefab, plant.transform);
             stemGO.name = "Stem";
             stemGO.transform.localScale = new Vector3(stem.Width, stem.Width, stem.Height);
             stemGO.transform.localPosition = Vector3.zero;
+
+            for (int i = 0; i < 2; i++)
+            {
+                float angle = i * (360f / 2);
+                Quaternion rotation = Quaternion.Euler(235f, angle, 0f);
+
+                Vector3 leafPosition = stemGO.transform.position + Vector3.up * stemGO.transform.localScale.z * 0.25f;
+                GameObject leafGO = Object.Instantiate(sunflowerObjects.LeafPrefab, plant.transform);
+
+                leafGO.transform.localRotation = rotation;
+                leafGO.transform.position = leafPosition;
+
+                var leafSize = 15f;
+
+                leafGO.transform.localScale = new Vector3(leafSize, leafSize, 0.5f);
+
+                var leafEntity = _ecsWorld.NewEntity();
+                ref var leaf = ref leafEntity.Get<LeafComponent>();
+             
+                leafEntity.Get<SproutTag>();
+
+                leaf.Size = leafSize;
+                leaf.LeafGO = leafGO;
+            }
 
             stem.stemGO = stemGO;
         }

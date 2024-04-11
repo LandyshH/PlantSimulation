@@ -7,13 +7,18 @@ namespace Assets.Scripts.Systems
     public sealed class LeafGrowthSystem : IEcsRunSystem
     {
         private EnvironmentSettings environment;
-        private PlantData plantData;
+        private StaticData _staticData;
 
         EcsFilter<LeafComponent> _leafFilter;
         EcsFilter<StemComponent> _stemFilter;
 
         public void Run()
         {
+            if (_staticData.PlantGrowthStage == Enum.PlantGrowthStage.Senile || _staticData.GoToNextStage)
+            {
+                return;
+            }
+
             ref var stem = ref _stemFilter.Get1(0);
 
             foreach (var i in _leafFilter)
