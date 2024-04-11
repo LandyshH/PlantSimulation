@@ -9,7 +9,7 @@ namespace Assets.Scripts.Systems
     {
         private EnvironmentSettings environment;
         private StaticData staticData;
-        private PlantData plantData;
+        //private PlantData plantData;
 
         EcsFilter<StemComponent> _stemFilter;
 
@@ -35,16 +35,16 @@ namespace Assets.Scripts.Systems
                 {
                     if (environment.Temperature == Temperature.Max || environment.Water == Water.Lack)
                     {
-                        stem.Height += GrowthRateCalculator.CalculateGrowthRate(environment) / 10;
+                        stem.Height += GrowthRateCalculator.CalculateGrowthRate(environment) / 50;
 
                         if (environment.Temperature == Temperature.Max)
                         {
-                            stem.Width -= 1;
+                            stem.Width -= 0.1f;
                         }
 
                         if (environment.Water == Water.Lack)
                         {
-                            stem.Width -= 1;
+                            stem.Width -= 0.1f;
                         }
 
                         return;
@@ -54,28 +54,28 @@ namespace Assets.Scripts.Systems
                         || environment.Oxygen == Oxygen.Lack || environment.Oxygen == Oxygen.Excess
                         || environment.Light == LightColor.Darkness)
                     {
-                        stem.Height += GrowthRateCalculator.CalculateGrowthRate(environment) / 10;
-                        stem.Width += GrowthRateCalculator.CalculateGrowthRate(environment) / 5;
+                        stem.Height += GrowthRateCalculator.CalculateGrowthRate(environment) / 50;
+                        stem.Width += GrowthRateCalculator.CalculateGrowthRate(environment) / 60;
 
                         return;
                     }
 
                     if (environment.Light == LightColor.Blue)
                     {
-                        stem.Width += GrowthRateCalculator.CalculateGrowthRate(environment) / 5;
+                        stem.Width += GrowthRateCalculator.CalculateGrowthRate(environment) / 60;
                     }
 
                     if (environment.Light == LightColor.Red)
                     {
-                        stem.Height += GrowthRateCalculator.CalculateGrowthRate(environment) / 10;
+                        stem.Height += GrowthRateCalculator.CalculateGrowthRate(environment) / 50;
                     }
 
-                    stem.Height += GrowthRateCalculator.CalculateGrowthRate(environment) / 10;
-                    stem.Width += GrowthRateCalculator.CalculateGrowthRate(environment) / 5;
+                    stem.Height += GrowthRateCalculator.CalculateGrowthRate(environment) / 50;
+                    stem.Width += GrowthRateCalculator.CalculateGrowthRate(environment) / 60;
                 }
 
-                plantData.stemWidth += stem.Width;
-                plantData.stemHeight += stem.Height;
+                /*plantData.stemWidth += stem.Width;
+                plantData.stemHeight += stem.Height;*/
             }
         }
     }

@@ -1,4 +1,5 @@
 using Assets.Scripts.Components.Events;
+using Assets.Scripts.ProceduralGeneration.Sunflower.ScriptableObjects;
 using Assets.Scripts.Systems;
 using Leopotam.Ecs;
 using UnityEngine;
@@ -9,6 +10,8 @@ public class EcsGamestartup : MonoBehaviour
     public StaticData configuration;
     public EnvironmentSettings environmentSettings;
     public UI ui;
+    public SunflowerObjects sunflowerObjects;
+    //public ProceduralSunflower proceduralSunflower;
     private EcsWorld ecsWorld;
     private EcsSystems systems;
 
@@ -32,6 +35,8 @@ public class EcsGamestartup : MonoBehaviour
             .Inject(configuration)
             .Inject(environmentSettings)
             .Inject(ui)
+            .Inject(sunflowerObjects)
+            //.Inject(proceduralSunflower)
             ;
     }
 
@@ -51,6 +56,7 @@ public class EcsGamestartup : MonoBehaviour
 
             .Add(new CreateStemSystem())
             .Add(new StemGrowthSystem())
+            .Add(new StemGrowthAnimationSystem())
 
             .Add(new CreateBranchSystem())
             .Add(new BranchGrowthSystem())

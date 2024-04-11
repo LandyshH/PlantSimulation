@@ -11,6 +11,7 @@ public struct StemComponent
     //public PlantGrowthStage GrowthStage;
     public float Water;
     public Vector3 Position;
+    public GameObject stemGO;
 }
 
 // Width < x => усохло

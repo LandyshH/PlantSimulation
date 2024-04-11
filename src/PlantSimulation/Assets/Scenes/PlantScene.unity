@@ -1021,7 +1021,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &200026974
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6041,6 +6041,37 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1609072588}
   m_CullTransparentMesh: 1
+--- !u!1 &1618724621
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1618724622}
+  m_Layer: 0
+  m_Name: Sunflower
+  m_TagString: Plant
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1618724622
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1618724621}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.08517586, y: 0.09708233, z: 0.585939}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1627278218
 GameObject:
   m_ObjectHideFlags: 0
@@ -7941,6 +7972,7 @@ MonoBehaviour:
   configuration: {fileID: 11400000, guid: ea677111c347a7349be3cfe0f2dfab17, type: 2}
   environmentSettings: {fileID: 11400000, guid: 3b033e34aba0d5c469937234818c4f8c, type: 2}
   ui: {fileID: 200026979}
+  sunflowerObjects: {fileID: 11400000, guid: f8515b0fb97fa0043aec6456901448ca, type: 2}
 --- !u!1 &1999611711
 GameObject:
   m_ObjectHideFlags: 0
