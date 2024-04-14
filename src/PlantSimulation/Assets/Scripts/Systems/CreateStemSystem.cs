@@ -13,7 +13,7 @@ namespace Assets.Scripts.Systems
         EcsFilter<RootComponent> _filter;
 
         public SunflowerObjects sunflowerObjects;
-        //private ProceduralSunflower proceduralSunflower;
+        private StaticData staticData;
 
         public void Init()
         {
@@ -24,11 +24,11 @@ namespace Assets.Scripts.Systems
 
             stem.Lifetime = 0;
             stem.Position = rootComponent.Position;
-            stem.Height = 2;
-            stem.Width = 3;
+            stem.Height = 0;
+            stem.Width = 0;
+            staticData.StemHeightDiff = 0;
 
             var plant = GameObject.FindGameObjectsWithTag("Plant").FirstOrDefault();
-            //var stemGO = proceduralSunflower.CreateStem(stem.Width, stem.Height, plant.transform);
 
             var stemGO = Object.Instantiate(sunflowerObjects.StemPrefab, plant.transform);
             stemGO.name = "Stem";
@@ -49,6 +49,7 @@ namespace Assets.Scripts.Systems
                 var leafSize = 15f;
 
                 leafGO.transform.localScale = new Vector3(leafSize, leafSize, 0.5f);
+                leafGO.name = "Sprout Leaf " + i;
 
                 var leafEntity = _ecsWorld.NewEntity();
                 ref var leaf = ref leafEntity.Get<LeafComponent>();
@@ -60,6 +61,8 @@ namespace Assets.Scripts.Systems
             }
 
             stem.stemGO = stemGO;
+
+            staticData.leafPositions.Clear();
         }
     }
 }

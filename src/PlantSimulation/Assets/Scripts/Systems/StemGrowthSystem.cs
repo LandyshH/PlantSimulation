@@ -14,16 +14,17 @@ namespace Assets.Scripts.Systems
 
         public void Run()
         {
+            if (staticData.PlantGrowthStage == PlantGrowthStage.Senile)
+            {
+                return;
+            }
+
             if (staticData.GoToNextStage)
             {
                 return;
             }
 
-            if (staticData.PlantGrowthStage == PlantGrowthStage.Senile || staticData.PlantGrowthStage == PlantGrowthStage.Embryonic)
-            {
-                return;
-            }
-            //уточнить логику роста
+            
             foreach (var i in _stemFilter)
             {
                 ref var stem = ref _stemFilter.Get1(i);
@@ -32,26 +33,34 @@ namespace Assets.Scripts.Systems
 
                 if (environment.Temperature == Temperature.Max || environment.Water == Water.Lack)
                 {
-                    if (environment.Temperature == Temperature.Max)
+                    if (stem.Width > 1.5f)
                     {
-                        stem.Width -= 0.1f;
-                    }
+                        if (environment.Temperature == Temperature.Max)
+                        {
+                            stem.Width -= 0.01f;
+                        }
 
-                    if (environment.Water == Water.Lack)
-                    {
-                        stem.Width -= 0.1f;
+                        if (environment.Water == Water.Lack)
+                        {
+                            stem.Width -= 0.01f;
+                        }
                     }
                 }
+                else if (environment.Light == LightColor.Blue)
+                {
+                    stem.Width += 0.01f;
+                }
+                
 
-                staticData.StemHeightDiff = GrowthRateCalculator.CalculateGrowthRate(environment) / 50;
+                staticData.StemHeightDiff += GrowthRateCalculator.CalculateGrowthRate(environment) * 0.00001f;
 
-                if (environment.CarbonDioxide != CarbonDioxide.Excess)
+                if (environment.CarbonDioxide == CarbonDioxide.Excess)
                 {
                     staticData.StemHeightDiff = 0;
                 }
 
                 stem.Height += staticData.StemHeightDiff;
-                stem.Width += GrowthRateCalculator.CalculateGrowthRate(environment) / 60;
+                stem.Width += GrowthRateCalculator.CalculateGrowthRate(environment) * 0.004f;
             }
         }
     }

@@ -11,7 +11,6 @@ public class EcsGamestartup : MonoBehaviour
     public EnvironmentSettings environmentSettings;
     public UI ui;
     public SunflowerObjects sunflowerObjects;
-    //public ProceduralSunflower proceduralSunflower;
     private EcsWorld ecsWorld;
     private EcsSystems systems;
 
@@ -36,7 +35,6 @@ public class EcsGamestartup : MonoBehaviour
             .Inject(environmentSettings)
             .Inject(ui)
             .Inject(sunflowerObjects)
-            //.Inject(proceduralSunflower)
             ;
     }
 
@@ -65,7 +63,15 @@ public class EcsGamestartup : MonoBehaviour
             .Add(new CreateLeafSystem())
             .Add(new LeafGrowthSystem())
             .Add(new FlowerGrowthSystem())
-            .Add(new LeafGrowthAnimationSystem());
+            .Add(new LeafGrowthAnimationSystem())
+
+            .Add(new CreateFlowerBudSystem())
+            .Add(new FlowerBudGrowthSystem())
+            .Add(new FlowerBudGrowthAnimationSystem())
+
+            .Add(new CreatePetalsSystem())
+            .Add(new PetalGrowthSystem())
+            .Add(new PetalAnimationSystem())
             ;
     }
 

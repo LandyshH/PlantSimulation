@@ -76,14 +76,12 @@ public class ProceduralSunflower : MonoBehaviour
             float minHeight = stemHeight * 0.05f;
             float maxHeight = stemHeight * 0.25f;
 
-            Debug.Log(minHeight.ToString() + " " + maxHeight.ToString());
-
             Vector3 leafPosition = stem.transform.position + Vector3.up * Random.Range(minHeight, maxHeight);
 
             bool tooClose = false;
             foreach (Vector3 existingPosition in leafPositions)
             {
-                if (Vector3.Distance(leafPosition, existingPosition) < 0.1f) // 0.2f мин допустимое расстояние между листьями
+                if (Vector3.Distance(leafPosition, existingPosition) < 0.1f) // 0.1f мин допустимое расстояние между листьями
                 {
                     tooClose = true;
                     break;

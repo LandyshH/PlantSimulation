@@ -33,42 +33,71 @@ namespace Assets.Scripts.Systems
                 Debug.Log("Create Leaf");
 
                 ref var stemEntity = ref _stemFilter.GetEntity(i);
-                ref var stem = ref _stemFilter.Get1(i);
+                ref var stemComponent = ref _stemFilter.Get1(i);
 
-                //var rnd = new System.Random();
-                //var random = rnd.Next(1, 3);
                 var plant = GameObject.FindGameObjectsWithTag("Plant").FirstOrDefault();
-                var leafEntity = CreateLeaf(stem, plant.transform);
+                var leafEntity = _ecsWorld.NewEntity();
+                ref var leaf = ref leafEntity.Get<LeafComponent>();
+                leaf.Lifetime = 0;
+                leaf.Size = 10;
 
-                // spawn in 2 sec
-                stemEntity.Get<BlockCreateDuration>().Timer = 2f;
+                var angle = Random.Range(0f, 360f);
+                var rotation = Quaternion.Euler(-60f, angle, 0f);
+
+                var minHeight = stemComponent.stemGO.transform.localScale.z * 0.1f;
+                var maxHeight = stemComponent.stemGO.transform.localScale.z * 0.20f;
+
+                var leafPosition = GetLeafPosition(stemComponent, minHeight, maxHeight);
+
+
+                var leafGO = Object.Instantiate(_sunflowerObjects.LeafPrefab, plant.transform);
+                leafGO.transform.localRotation = rotation;
+                leafGO.transform.position = leafPosition;
+                leafGO.transform.localScale = new Vector3(leaf.Size, leaf.Size, 0.5f);
+
+                if (environment.Temperature == Enum.Temperature.Max)
+                {
+                    leafGO.transform.localScale = new Vector3(leaf.Size - 5f, leaf.Size, 0.5f);
+                }
+
+                leafGO.name = "Leaf";
+
+                leaf.LeafGO = leafGO;
+
+                if (environment.Minerals == Enum.Minerals.Lack || environment.Temperature == Enum.Temperature.Min)
+                {
+                    stemEntity.Get<BlockCreateDuration>().Timer = 4f;
+                }
+                else
+                {
+                    stemEntity.Get<BlockCreateDuration>().Timer = 2f;
+                }
             }
         }
 
-        private EcsEntity CreateLeaf(StemComponent stemComponent, Transform parentTransform)
+        
+        private Vector3 GetLeafPosition(StemComponent stemComponent, float minHeight, float maxHeight)
         {
-            var leafEntity = _ecsWorld.NewEntity();
-            ref var leaf = ref leafEntity.Get<LeafComponent>();
-            leaf.Lifetime = 0;
-            leaf.Size = 10;
+            while (true)
+            {
+                bool tooClose = false;
+                var leafPosition = stemComponent.stemGO.transform.position + Vector3.up * Random.Range(minHeight, maxHeight);
 
-            var angle = Random.Range(0f, 360f);
-            var rotation = Quaternion.Euler(-60f, angle, 0f);
+                foreach (Vector3 existingPosition in _staticData.leafPositions)
+                {
+                    if (Vector3.Distance(leafPosition, existingPosition) < 0.1f) // 0.1f мин допустимое расстояние между листьями
+                    {
+                        tooClose = true;
+                        break;
+                    }
+                }
 
-            var minHeight = stemComponent.stemGO.transform.localScale.z * 0.05f;
-            var maxHeight = stemComponent.stemGO.transform.localScale.z * 0.25f;
-            //Debug.Log(minHeight.ToString() + " " + maxHeight.ToString());
-
-            var leafPosition = stemComponent.stemGO.transform.position + Vector3.up * Random.Range(minHeight, maxHeight);
-
-            var leafGO = Object.Instantiate(_sunflowerObjects.LeafPrefab, parentTransform);
-            leafGO.transform.localRotation = rotation;
-            leafGO.transform.position = leafPosition;
-            leafGO.transform.localScale = new Vector3(leaf.Size, leaf.Size, 0.5f);
-
-            leaf.LeafGO = leafGO;
-
-            return leafEntity;
+                if (!tooClose)
+                {
+                    _staticData.leafPositions.Add(leafPosition);
+                    return leafPosition;
+                }
+            }
         }
 
         private EcsEntity CreateFlower(Vector3 position)
@@ -86,44 +115,3 @@ namespace Assets.Scripts.Systems
     }
 }
 
-/*
- public void CreateLeafs(GameObject stem, GameObject leafPrefab)
-    {
-        List<Vector3> leafPositions = new List<Vector3>();
-
-        for (int i = 0; i < leafCount; i++)
-        {
-            float angle = Random.Range(0f, 360f);
-            Quaternion rotation = Quaternion.Euler(-60f, angle, 0f);
-
-            float minHeight = stemHeight * 0.05f;
-            float maxHeight = stemHeight * 0.25f;
-
-            Debug.Log(minHeight.ToString() + " " + maxHeight.ToString());
-
-            Vector3 leafPosition = stem.transform.position + Vector3.up * Random.Range(minHeight, maxHeight);
-
-            bool tooClose = false;
-            foreach (Vector3 existingPosition in leafPositions)
-            {
-                if (Vector3.Distance(leafPosition, existingPosition) < 0.1f) // 0.2f мин допустимое расстояние между листьями
-                {
-                    tooClose = true;
-                    break;
-                }
-            }
-
-            if (tooClose)
-            {
-                continue;
-            }
-
-            leafPositions.Add(leafPosition);
-
-            GameObject leaf = Instantiate(leafPrefab, sunflower.transform);
-            leaf.transform.localRotation = rotation;
-            leaf.transform.position = leafPosition;
-            leaf.transform.localScale = new Vector3(leafWidth, leafHeight, 0.5f);
-        }
-    }
- */

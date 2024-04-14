@@ -25,17 +25,38 @@ namespace Assets.Scripts.Systems
             {
                 ref var leaf = ref _leafFilter.Get1(i);
 
-                //Debug.Log("Leaf grow " + leaf.Size + " " + leaf.Lifetime);
-
-                if (environment.Temperature != Enum.Temperature.Optimal)
+                if (i == 0 || i == 1)
                 {
-                    leaf.Size += GrowthRateCalculator.CalculateGrowthRate(environment) * Time.deltaTime / 10;
-                    leaf.Lifetime += 10 * Time.deltaTime;
-                    continue;
+                    if (_staticData.PlantGrowthStage == Enum.PlantGrowthStage.Juvenile)
+                    {
+                        leaf.Size -= 0.1f;
+                        if (leaf.Size <= 0)
+                        {
+                            leaf.Size = 0;
+                        }
+                    }
                 }
+                else
+                {
+                    if (environment.Temperature == Enum.Temperature.Max)
+                    {
+                        leaf.Size -= 0.1f;
 
-                leaf.Size += GrowthRateCalculator.CalculateGrowthRate(environment) * Time.deltaTime;
-                leaf.Lifetime += 10 * Time.deltaTime;
+                        if (leaf.Size <= 0)
+                        {
+                            leaf.Size = 0;
+                        }
+
+                        leaf.Lifetime += Time.deltaTime;
+                    }
+                    else
+                    {
+                        leaf.Size += GrowthRateCalculator.CalculateGrowthRate(environment) * 0.01f;
+                    }
+                }
+                
+                leaf.Lifetime += Time.deltaTime;
+                Debug.Log("Leaf: " + leaf.Lifetime);
             }
         }
     }

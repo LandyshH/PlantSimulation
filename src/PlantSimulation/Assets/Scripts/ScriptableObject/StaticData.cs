@@ -1,4 +1,5 @@
 ﻿using Assets.Scripts.Enum;
+using System.Collections.Generic;
 using UnityEngine;
 
 
@@ -9,5 +10,7 @@ public class StaticData : ScriptableObject
     public PlantGrowthStage PlantGrowthStage;
     public bool GoToNextStage;
     public float StemHeightDiff;
+    public int PetalCount = 15;
+    public List<Vector3> leafPositions;
 }
 

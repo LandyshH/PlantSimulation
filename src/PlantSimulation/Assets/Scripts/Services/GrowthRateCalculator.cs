@@ -18,6 +18,7 @@ namespace Assets.Scripts.Services
             growthRate += CalculateOxygenRate(environment) * 0.1f;
             growthRate += CalculateMineralsRate(environment) * 0.1f;
             growthRate += CalculateTemperatureRate(environment) * 0.1f;
+            growthRate += CalculateCarbonDioxideRate(environment) * 0.1f;
 
             return growthRate;
         }

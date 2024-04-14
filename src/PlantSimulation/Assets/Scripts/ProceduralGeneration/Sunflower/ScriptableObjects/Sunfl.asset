@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: Sunfl
   m_EditorClassIdentifier: 
   StemPrefab: {fileID: -5568371526223589888, guid: dd92e0d47d7c61a4e9845c03fad339f0, type: 3}
-  DryStemPrefab: {fileID: -5568371526223589888, guid: dd92e0d47d7c61a4e9845c03fad339f0, type: 3}
-  LeafPrefab: {fileID: 8416272007918961125, guid: dd92e0d47d7c61a4e9845c03fad339f0, type: 3}
-  DarkLeafPrefab: {fileID: 8416272007918961125, guid: dd92e0d47d7c61a4e9845c03fad339f0, type: 3}
-  PetalPrefab: {fileID: -7029948723529949830, guid: dd92e0d47d7c61a4e9845c03fad339f0, type: 3}
+  DryStemPrefab: {fileID: -6733177361254619370, guid: d8a413c62c8b25848a04631a02f97945, type: 3}
+  LeafPrefab: {fileID: 8416272007918961125, guid: d8a413c62c8b25848a04631a02f97945, type: 3}
+  DarkLeafPrefab: {fileID: -516098083770646512, guid: d8a413c62c8b25848a04631a02f97945, type: 3}
+  PetalPrefab: {fileID: -7029948723529949830, guid: d8a413c62c8b25848a04631a02f97945, type: 3}
   SeedsPrefab: {fileID: 1641309589632535731, guid: 84a9713418710a44da7e0f61162540d8, type: 3}
-  BudPrefab: {fileID: 8513859187771203891, guid: dd92e0d47d7c61a4e9845c03fad339f0, type: 3}
+  BudPrefab: {fileID: 8513859187771203891, guid: d8a413c62c8b25848a04631a02f97945, type: 3}

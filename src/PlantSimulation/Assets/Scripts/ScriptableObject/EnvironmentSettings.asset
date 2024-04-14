@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b854348392c9ec944a9dd2527c105434, type: 3}
   m_Name: EnvironmentSettings
   m_EditorClassIdentifier: 
+  Light: 1
   Water: 1
   Temperature: 1
   Minerals: 1

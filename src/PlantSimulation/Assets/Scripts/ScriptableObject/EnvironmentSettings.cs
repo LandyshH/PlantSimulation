@@ -5,10 +5,10 @@ using UnityEngine;
 [CreateAssetMenu]
 public class EnvironmentSettings : ScriptableObject
 {
-    public LightColor Light;
-    public Water Water;
-    public Temperature Temperature;
-    public Minerals Minerals;
-    public Oxygen Oxygen;
-    public CarbonDioxide CarbonDioxide;
+    public LightColor Light = LightColor.Sun;
+    public Water Water = Water.Optimal;
+    public Temperature Temperature = Temperature.Optimal;
+    public Minerals Minerals = Minerals.Optimal;
+    public Oxygen Oxygen = Oxygen.Optimal;
+    public CarbonDioxide CarbonDioxide = CarbonDioxide.Optimal;
 }

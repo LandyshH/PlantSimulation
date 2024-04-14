@@ -1,6 +1,5 @@
 ﻿using Assets.Scripts.Services;
 using Leopotam.Ecs;
-using Palmmedia.ReportGenerator.Core.Parser.Analysis;
 using UnityEngine;
 
 namespace Assets.Scripts.Systems
@@ -38,8 +37,6 @@ namespace Assets.Scripts.Systems
 
                 flower.Size += GrowthRateCalculator.CalculateGrowthRate(environment) * Time.deltaTime;
                 flower.Lifetime += 10 * Time.deltaTime;
-
-               // Debug.Log("Flower grow " + flower.Size + " " + flower.Lifetime);
             }
         }
     }
