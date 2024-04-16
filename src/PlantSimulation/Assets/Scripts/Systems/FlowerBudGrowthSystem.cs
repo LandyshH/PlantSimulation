@@ -24,7 +24,7 @@ public sealed class FlowerBudGrowthSystem : IEcsRunSystem
                 return;
             }
 
-            var growthRate = 0.5f;
+            var growthRate = 0.8f;
             flowerBud.Size += growthRate * 0.09f;
         }
     }

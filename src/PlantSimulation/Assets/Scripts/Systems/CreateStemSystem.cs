@@ -14,6 +14,7 @@ namespace Assets.Scripts.Systems
 
         public SunflowerObjects sunflowerObjects;
         private StaticData staticData;
+        private EnvironmentSettings environment;
 
         public void Init()
         {
@@ -25,7 +26,9 @@ namespace Assets.Scripts.Systems
             stem.Lifetime = 0;
             stem.Position = rootComponent.Position;
             stem.Height = 0;
-            stem.Width = 0;
+            stem.MaxHeight = 15f;
+            stem.Width = 0.1f;
+            stem.MaxWidth = 3f;
             staticData.StemHeightDiff = 0;
 
             var plant = GameObject.FindGameObjectsWithTag("Plant").FirstOrDefault();
@@ -46,7 +49,7 @@ namespace Assets.Scripts.Systems
                 leafGO.transform.localRotation = rotation;
                 leafGO.transform.position = leafPosition;
 
-                var leafSize = 15f;
+                var leafSize = 10f;
 
                 leafGO.transform.localScale = new Vector3(leafSize, leafSize, 0.5f);
                 leafGO.name = "Sprout Leaf " + i;
@@ -56,7 +59,8 @@ namespace Assets.Scripts.Systems
              
                 leafEntity.Get<SproutTag>();
 
-                leaf.Size = leafSize;
+                leaf.Height = leafSize;
+                leaf.Width = leafSize;
                 leaf.LeafGO = leafGO;
             }
 

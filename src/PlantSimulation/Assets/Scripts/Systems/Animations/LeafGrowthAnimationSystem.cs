@@ -7,12 +7,12 @@ public sealed class LeafGrowthAnimationSystem : IEcsRunSystem
 {
     private EcsFilter<LeafComponent> _filter;
     private EcsFilter<StemComponent> _stemFilter;
+    private EnvironmentSettings environment;
     private readonly StaticData _staticData;
 
     public void Run()
     {
-        if (_staticData.PlantGrowthStage == Assets.Scripts.Enum.PlantGrowthStage.Senile 
-            || _staticData.GoToNextStage)
+        if (_staticData.GoToNextStage)
         {
             return;
         }
@@ -29,10 +29,11 @@ public sealed class LeafGrowthAnimationSystem : IEcsRunSystem
                 leaf.LeafGO.transform.position = leafPosition;
             }
 
-            Vector3 maxScale = new Vector3(leaf.Size, leaf.Size, 0.5f);
-            leaf.LeafGO.transform.localScale = Vector3.Lerp(leaf.LeafGO.transform.localScale, maxScale, 1 * Time.deltaTime);
+            var maxScale = new Vector3(leaf.Width, leaf.Height, 0.5f);
 
-            if (leaf.Size <= 5f && leaf.Lifetime >= 10)
+            leaf.LeafGO.transform.localScale = Vector3.Lerp(leaf.LeafGO.transform.localScale, maxScale, 2 * Time.deltaTime);
+
+            if (leaf.Width <= 7f && leaf.Lifetime >= 15)
             {
                 MeshRenderer meshRenderer = leaf.LeafGO.GetComponent<MeshRenderer>();
                 if (meshRenderer != null)
@@ -44,7 +45,6 @@ public sealed class LeafGrowthAnimationSystem : IEcsRunSystem
 
                     meshRenderer.material = newMaterial;
                 }
-
             }
         }
     }

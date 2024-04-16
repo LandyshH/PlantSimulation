@@ -14,35 +14,31 @@ namespace Assets.Scripts.Systems
 
         public void Run()
         {
-            if (staticData.PlantGrowthStage == PlantGrowthStage.Senile)
+            if (staticData.PlantGrowthStage == PlantGrowthStage.Senile || staticData.GoToNextStage)
             {
                 return;
             }
 
-            if (staticData.GoToNextStage)
-            {
-                return;
-            }
-
-            
             foreach (var i in _stemFilter)
             {
                 ref var stem = ref _stemFilter.Get1(i);
 
-                stem.Lifetime += Time.deltaTime * 10;
+                stem.Lifetime += Time.deltaTime;
 
                 if (environment.Temperature == Temperature.Max || environment.Water == Water.Lack)
                 {
-                    if (stem.Width > 1.5f)
+                    stem.MaxHeight = 12f;
+
+                    if (stem.Width >= 1.3f)
                     {
                         if (environment.Temperature == Temperature.Max)
                         {
-                            stem.Width -= 0.01f;
+                            stem.Width -= 0.004f;
                         }
 
                         if (environment.Water == Water.Lack)
                         {
-                            stem.Width -= 0.01f;
+                            stem.Width -= 0.002f;
                         }
                     }
                 }
@@ -50,17 +46,22 @@ namespace Assets.Scripts.Systems
                 {
                     stem.Width += 0.01f;
                 }
-                
-
-                staticData.StemHeightDiff += GrowthRateCalculator.CalculateGrowthRate(environment) * 0.00001f;
-
-                if (environment.CarbonDioxide == CarbonDioxide.Excess)
+                else if (environment.Light == LightColor.Red)
                 {
-                    staticData.StemHeightDiff = 0;
+                    stem.MaxHeight = 18f;
+                }
+                else
+                {
+                    if (stem.Width < stem.MaxWidth)
+                    {
+                        stem.Width += GrowthRateCalculator.CalculateGrowthRate(environment) * Time.deltaTime * 0.3f;
+                    }
                 }
 
-                stem.Height += staticData.StemHeightDiff;
-                stem.Width += GrowthRateCalculator.CalculateGrowthRate(environment) * 0.004f;
+                if (stem.Height < stem.MaxHeight)
+                {
+                    stem.Height += GrowthRateCalculator.CalculateGrowthRate(environment) * Time.deltaTime * 0.5f;
+                }
             }
         }
     }

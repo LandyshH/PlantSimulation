@@ -1,4 +1,3 @@
-using Assets.Scripts.Enum;
 using System;
 using UnityEngine;
 
@@ -6,13 +5,11 @@ using UnityEngine;
 public struct StemComponent
 {
     public float Height;
+    public float MaxHeight;
     public float Width;
+    public float MaxWidth;
     public float Lifetime;
-    //public PlantGrowthStage GrowthStage;
     public float Water;
     public Vector3 Position;
     public GameObject stemGO;
 }
-
-// Width < x => усохло
-// Water < y => усохло

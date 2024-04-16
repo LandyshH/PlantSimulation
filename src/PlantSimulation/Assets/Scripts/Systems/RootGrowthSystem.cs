@@ -28,8 +28,6 @@ namespace Assets.Scripts.Systems
             {
                 ref var root = ref _rootFilter.Get1(i);
 
-                //Debug.Log("Root grow " + i + " " + staticData.PlantGrowthStage + " " + root.Size + " " + root.Lifetime);
-
                 if (environment.Oxygen == Oxygen.Lack && staticData.PlantGrowthStage == PlantGrowthStage.Juvenile)
                 {
                     root.IsOxygenLack = true;
@@ -38,31 +36,31 @@ namespace Assets.Scripts.Systems
                 switch (staticData.PlantGrowthStage)
                 {
                     case PlantGrowthStage.Juvenile:
-                        if (root.Lifetime >= 30f)
+                        if (root.Lifetime >= 20f)
                         {
                             staticData.GoToNextStage = true;
                             break;
                         }
 
-                        root.Lifetime += Time.deltaTime * 10;
-                        root.Size += GrowthRateCalculator.CalculateGrowthRate(environment) * Time.deltaTime;
+                        root.Lifetime += Time.deltaTime;
+                        root.Size += GrowthRateCalculator.CalculateGrowthRate(environment);
 
                         break;
 
                     case PlantGrowthStage.MaturityAndReproduction:
-                        if (root.Lifetime >= 50f)
+                        if (root.Lifetime >= 40f)
                         {
                             staticData.GoToNextStage = true;
                             break;
                         }
 
-                        root.Lifetime += Time.deltaTime * 10;
-                        root.Size += GrowthRateCalculator.CalculateGrowthRate(environment) * Time.deltaTime;
+                        root.Lifetime += Time.deltaTime;
+                        root.Size += GrowthRateCalculator.CalculateGrowthRate(environment);
 
                         break;
                     case PlantGrowthStage.Senile:
                         staticData.GoToNextStage = false;
-                        root.Lifetime += Time.deltaTime * 10; 
+                        root.Lifetime += Time.deltaTime; 
                         break;
                 }
             }

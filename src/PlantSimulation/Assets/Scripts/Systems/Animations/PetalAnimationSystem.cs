@@ -9,8 +9,7 @@ public sealed class PetalAnimationSystem : IEcsRunSystem
 
     public void Run()
     {
-        if (_staticData.GoToNextStage 
-            || _staticData.PlantGrowthStage != Assets.Scripts.Enum.PlantGrowthStage.MaturityAndReproduction)
+        if (_staticData.GoToNextStage)
         {
             return;
         }

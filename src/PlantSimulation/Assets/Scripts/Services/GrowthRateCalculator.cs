@@ -1,4 +1,5 @@
 ﻿using Assets.Scripts.Enum;
+using UnityEngine;
 
 namespace Assets.Scripts.Services
 {
@@ -8,19 +9,20 @@ namespace Assets.Scripts.Services
         {
             float growthRate = 0f;
 
-            if (environment.Temperature == Temperature.Max || environment.CarbonDioxide == CarbonDioxide.Excess)
+            if (environment.CarbonDioxide == CarbonDioxide.Excess)
             {
                 return growthRate;
             }
 
-            growthRate += CalculatePhotosynthesisRate(environment) * 0.1f;
-            growthRate += CalculateWaterRate(environment) * 0.1f;
-            growthRate += CalculateOxygenRate(environment) * 0.1f;
-            growthRate += CalculateMineralsRate(environment) * 0.1f;
-            growthRate += CalculateTemperatureRate(environment) * 0.1f;
-            growthRate += CalculateCarbonDioxideRate(environment) * 0.1f;
+            growthRate += CalculatePhotosynthesisRate(environment);
+            growthRate += CalculateWaterRate(environment);
+            growthRate += CalculateOxygenRate(environment);
+            growthRate += CalculateMineralsRate(environment);
+            growthRate += CalculateTemperatureRate(environment);
+            var carbonDioxide = CalculateCarbonDioxideRate(environment);
+            growthRate += carbonDioxide;
 
-            return growthRate;
+            return growthRate * 0.1f;
         }
 
         private static float CalculatePhotosynthesisRate(EnvironmentSettings environment)
@@ -28,7 +30,7 @@ namespace Assets.Scripts.Services
             switch (environment.Light)
             {
                 case LightColor.Darkness:
-                    return 0.2f;
+                    return 0.5f;
                 case LightColor.Sun:
                     return 1f;
                 case LightColor.Red:
@@ -44,7 +46,7 @@ namespace Assets.Scripts.Services
             switch (environment.Water)
             {
                 case Water.Lack:
-                    return 0.2f;
+                    return 0.01f;
                 case Water.Optimal:
                     return 1f;
                 case Water.Excess:
@@ -58,11 +60,11 @@ namespace Assets.Scripts.Services
             switch (environment.Oxygen)
             {
                 case Oxygen.Lack:
-                    return 0.1f;
+                    return 0.01f;
                 case Oxygen.Optimal:
                     return 1f;
                 case Oxygen.Excess:
-                    return 0.1f;
+                    return 0.5f;
                 default: return 1f;
             }
         }
@@ -72,7 +74,7 @@ namespace Assets.Scripts.Services
             switch (environment.CarbonDioxide)
             {
                 case CarbonDioxide.Lack:
-                    return 0.1f;
+                    return 0.5f;
                 case CarbonDioxide.Optimal:
                     return 1f;
                 case CarbonDioxide.Excess:
@@ -86,11 +88,11 @@ namespace Assets.Scripts.Services
             switch (environment.Minerals)
             {
                 case Minerals.Lack:
-                    return 0.3f;
+                    return 0.5f;
                 case Minerals.Optimal:
                     return 1f;
                 case Minerals.Excess:
-                    return 0.4f;
+                    return 0.5f;
                 default: return 1f;
             }
         }

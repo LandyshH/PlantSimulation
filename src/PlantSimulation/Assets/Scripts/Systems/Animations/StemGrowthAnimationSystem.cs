@@ -19,9 +19,9 @@ public sealed class StemGrowthAnimationSystem : IEcsRunSystem
 
             Vector3 maxScale = new Vector3(stem.Width, stem.Width, stem.Height);
              
-            stem.stemGO.transform.localScale = Vector3.Lerp(stem.stemGO.transform.localScale, maxScale, 1 * Time.deltaTime);
+            stem.stemGO.transform.localScale = Vector3.Lerp(stem.stemGO.transform.localScale, maxScale, 2 * Time.deltaTime);
 
-            if (stem.Width <= 1.4f && _staticData.PlantGrowthStage != Assets.Scripts.Enum.PlantGrowthStage.Embryonic)
+            if (stem.Width <= 1.4f && stem.Lifetime > 15 && _staticData.PlantGrowthStage != Assets.Scripts.Enum.PlantGrowthStage.Embryonic)
             {
                 MeshRenderer meshRenderer = stem.stemGO.GetComponent<MeshRenderer>();
                 if (meshRenderer != null)
@@ -33,7 +33,6 @@ public sealed class StemGrowthAnimationSystem : IEcsRunSystem
 
                     meshRenderer.material = newMaterial;
                 }
-
             }
         }
     }

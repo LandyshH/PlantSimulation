@@ -19,12 +19,37 @@ public sealed class PetalGrowthSystem : IEcsRunSystem
         {
             ref var petal = ref _filter.Get1(i);
 
-            if (_staticData.PlantGrowthStage != Assets.Scripts.Enum.PlantGrowthStage.MaturityAndReproduction)
+            if (_staticData.PlantGrowthStage != Assets.Scripts.Enum.PlantGrowthStage.MaturityAndReproduction
+                && _staticData.PlantGrowthStage != Assets.Scripts.Enum.PlantGrowthStage.Senile)
             {
                 return;
             }
 
-            petal.Size = 6f;
+            if (environment.Temperature == Assets.Scripts.Enum.Temperature.Max)
+            {
+                petal.Size = 6f;
+
+                if (petal.Lifetime > 10)
+                {
+                    petal.Size -= 2f;
+                }
+
+                continue;
+            }
+
+            if (environment.Temperature == Assets.Scripts.Enum.Temperature.Max)
+            {
+                petal.Size = 5f;
+
+                if (petal.Lifetime > 10)
+                {
+                    petal.Size -= 2f;
+                }
+
+                continue;
+            }
+
+            petal.Size = 8f;
 
             var petalCount = _staticData.PetalCount;
 
@@ -39,6 +64,8 @@ public sealed class PetalGrowthSystem : IEcsRunSystem
 
             petal.PetalGO.transform.localRotation = rotation;
             petal.PetalGO.transform.position = petalPosition;
+
+            petal.Lifetime += Time.deltaTime;
         }
     }
 }

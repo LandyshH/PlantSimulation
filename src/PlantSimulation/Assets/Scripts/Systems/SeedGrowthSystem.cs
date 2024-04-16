@@ -29,7 +29,7 @@ namespace Assets.Scripts.Systems
                 ref var seedComponent = ref _filter.Get1(i);
                 
                 
-                Debug.Log("Doing " + " " + seedComponent.Stage + " " + seedComponent.Lifetime + " " + seedComponent.Size);
+                //Debug.Log("Doing " + " " + seedComponent.Stage + " " + seedComponent.Lifetime + " " + seedComponent.Size);
 
                 switch (seedComponent.Stage)
                 {

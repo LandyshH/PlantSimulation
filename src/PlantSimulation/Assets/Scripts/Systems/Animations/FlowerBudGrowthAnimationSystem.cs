@@ -11,7 +11,6 @@ public sealed class FlowerBudGrowthAnimationSystem : IEcsRunSystem
     public void Run()
     {
         if (_staticData.PlantGrowthStage == Assets.Scripts.Enum.PlantGrowthStage.Senile
-           // || _staticData.PlantGrowthStage == Assets.Scripts.Enum.PlantGrowthStage.Embryonic
             || _staticData.GoToNextStage)
         {
             return;
@@ -30,6 +29,33 @@ public sealed class FlowerBudGrowthAnimationSystem : IEcsRunSystem
             Vector3 maxScale = new Vector3(bud.Size, bud.Size, 3f);
             bud.FlowerBudGO.transform.localScale = Vector3.Lerp(bud.FlowerBudGO.transform.localScale, maxScale,
                 1 * Time.deltaTime);
+
+            if (_staticData.PlantGrowthStage == Assets.Scripts.Enum.PlantGrowthStage.Juvenile)
+            {
+                MeshRenderer meshRenderer = bud.FlowerBudGO.GetComponent<MeshRenderer>();
+                if (meshRenderer != null)
+                {
+                    Material newMaterial = new Material(meshRenderer.sharedMaterial)
+                    {
+                        color = new Color(0f, 153f / 255f, 0f)
+                    };
+
+                    meshRenderer.material = newMaterial;
+                }
+            }
+            else
+            {
+                MeshRenderer meshRenderer = bud.FlowerBudGO.GetComponent<MeshRenderer>();
+                if (meshRenderer != null)
+                {
+                    Material newMaterial = new Material(meshRenderer.sharedMaterial)
+                    {
+                        color = new Color(102f/255f, 0f, 0f)
+                    };
+
+                    meshRenderer.material = newMaterial;
+                }
+            }
         }
     }
 }

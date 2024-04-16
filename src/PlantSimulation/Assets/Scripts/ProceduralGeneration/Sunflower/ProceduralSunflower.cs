@@ -3,7 +3,6 @@ using Assets.Scripts.ProceduralGeneration.Sunflower.Enum;
 using Assets.Scripts.ProceduralGeneration.Sunflower.ScriptableObjects;
 using System.Collections.Generic;
 using UnityEngine;
-using static UnityEditor.Progress;
 
 public class ProceduralSunflower : MonoBehaviour
 {
@@ -23,9 +22,10 @@ public class ProceduralSunflower : MonoBehaviour
     public SunflowerObjects sunflowerObjects;
     private GameObject sunflower;
 
-    private Vector3 lastStemScale; 
+    private Vector3 lastStemScale;
+}
 
-    private void Update()
+    /*private void Update()
     {
         if (sunflower != null && sunflower.transform.localScale != lastStemScale)
         {
@@ -39,7 +39,7 @@ public class ProceduralSunflower : MonoBehaviour
         //Build();
     }
 
-    /*private void Build()
+    private void Build()
     {
         switch (Stage)
         {
@@ -56,12 +56,12 @@ public class ProceduralSunflower : MonoBehaviour
                 CreateSenileSunflower();
                 break;
         }
-    }*/
+    }
 
     private void RebuildFlower()
     {
         Destroy(sunflower);
-        //Build();
+        Build();
     }
 
     public void CreateLeafs(GameObject stem, GameObject leafPrefab)
@@ -117,10 +117,10 @@ public class ProceduralSunflower : MonoBehaviour
         }
     }
 
-    public GameObject CreateStem(float width, float height, Transform parent)
+    public GameObject CreateStem()
     {
-        var stem = Instantiate(sunflowerObjects.StemPrefab, parent);
-        stem.transform.localScale = new Vector3(width, width, height);
+        var stem = Instantiate(sunflowerObjects.StemPrefab, sunflower.transform);
+        stem.transform.localScale = new Vector3(stemWidth, stemWidth, stemHeight);
         stem.transform.localPosition = Vector3.zero;
         stem.name = "Stem";
 
@@ -135,7 +135,7 @@ public class ProceduralSunflower : MonoBehaviour
         return bud;
     }
 
-    /*public void CreateEmbryonicSunflower()
+    public void CreateEmbryonicSunflower()
     {
         sunflower = new GameObject("Sunflower");
         
@@ -206,5 +206,6 @@ public class ProceduralSunflower : MonoBehaviour
         CreateLeafs(stem, sunflowerObjects.LeafPrefab);
 
         CreatePetals(bud);
-    } */
+    } 
 }
+    */
