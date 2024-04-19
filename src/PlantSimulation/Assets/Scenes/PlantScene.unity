@@ -1562,14 +1562,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 254588822}
-  m_LocalRotation: {x: 0.07488, y: 0.83375585, z: -0.11682217, w: 0.53441256}
-  m_LocalPosition: {x: -3.2864552, y: 2.5555534, z: 2.1107883}
+  m_LocalRotation: {x: 0.007944983, y: 0.84180915, z: -0.012394497, w: 0.5395745}
+  m_LocalPosition: {x: -5.67, y: 2.02, z: 2.78}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 4
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 1.687, y: 114.683, z: 0}
 --- !u!1 &294673877
 GameObject:
   m_ObjectHideFlags: 0
@@ -2078,6 +2078,59 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 413177892}
   m_CullTransparentMesh: 1
+--- !u!1 &413453864
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 413453866}
+  - component: {fileID: 413453865}
+  m_Layer: 0
+  m_Name: lsystem
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &413453865
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 413453864}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8de442991391c4f43939b6fb94333cdc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  apicalBudPrefab: {fileID: 0}
+  leafPrefab: {fileID: 100002, guid: c781c122846905e45878d6825790856e, type: 3}
+  flowerPrefab: {fileID: 100012, guid: c781c122846905e45878d6825790856e, type: 3}
+  angle: 45
+  generations: 30
+  internodeLength: 20
+  StemLength: 0.01
+  StemWidth: 0.05
+  flowerSize: 0.1
+--- !u!4 &413453866
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 413453864}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -8.26, y: 0.5, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 9
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &466041939
 GameObject:
   m_ObjectHideFlags: 0
@@ -2687,7 +2740,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 644493859}
-  - component: {fileID: 644493860}
   m_Layer: 0
   m_Name: Test
   m_TagString: Untagged
@@ -2710,28 +2762,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &644493860
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 644493857}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5667582c58fccc742a79f6e6ffb016ef, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  stemHeight: 7
-  stemWidth: 3
-  leafWidth: 20
-  leafHeight: 20
-  leafCount: 5
-  petalCount: 15
-  leafAppearance: 2
-  stemAppearance: 0
-  Stage: 1
-  sunflowerObjects: {fileID: 11400000, guid: f8515b0fb97fa0043aec6456901448ca, type: 2}
 --- !u!1 &647805404
 GameObject:
   m_ObjectHideFlags: 0
