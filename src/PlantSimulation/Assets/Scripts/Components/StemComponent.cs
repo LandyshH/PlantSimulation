@@ -12,4 +12,6 @@ public struct StemComponent
     public float Water;
     public Vector3 Position;
     public GameObject stemGO;
+    public int Generation;
+    public bool IsGrowing;
 }

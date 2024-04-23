@@ -1,53 +1,44 @@
-﻿using System;
-using System.Collections.Generic;
-using UnityEditor.Experimental.GraphView;
-using UnityEngine;
+﻿using UnityEngine;
 
-namespace Assets.Scripts
+
+public struct Turtle
 {
-    public class Turtle
+    public Quaternion direction;
+    public Vector3 position;
+    public Vector3 step;
+
+    public Turtle(Turtle other)
     {
-        private class TurtleTransform
-        {
-            public Vector3 Position { get; }
-            public Quaternion Rotation { get; }
+        this.direction = other.direction;
+        this.position = other.position;
+        this.step = other.step;
+    }
 
+    public Turtle(Quaternion direction, Vector3 position, Vector3 step)
+    {
+        this.direction = direction;
+        this.position = position;
+        this.step = step;
+    }
 
-            public TurtleTransform(Vector3 position, Quaternion rotation)
-            {
-                Position = position;
-                Rotation = rotation;
+    public void Forward()
+    {
+        position += direction * step;
+    }
 
-            }
-        }
+    public void RotateX(float angle)
+    {
+        direction *= Quaternion.Euler(angle, 0, 0);
+    }
 
-        public Vector3 Position { get; private set; }
+    public void RotateY(float angle)
+    {
+        direction *= Quaternion.Euler(0, angle, 0);
+    }
 
-        public Quaternion Rotation { get; private set; }
-
-        private Stack<TurtleTransform> stack = new Stack<TurtleTransform>();
-
-        public Turtle(Vector3 position)
-        {
-            Position = position;
-        }
-
-        public void Translate(Vector3 delta)
-        {
-            delta = Rotation * delta;
-
-            Debug.DrawLine(Position, Position + delta, Color.black, 100f);
-
-            Position += delta;
-        }
-
-        public void Rotate(Vector3 delta) => Rotation = Quaternion.Euler(Rotation.eulerAngles + delta);
-        public void Push() => stack.Push(new TurtleTransform(Position, Rotation));
-        public void Pop()
-        {
-            var poppedTransform = stack.Pop();
-            Position = poppedTransform.Position;
-            Rotation = poppedTransform.Rotation;
-        }
+    public void RotateZ(float angle)
+    {
+        direction *= Quaternion.Euler(0, 0, angle);
     }
 }
+

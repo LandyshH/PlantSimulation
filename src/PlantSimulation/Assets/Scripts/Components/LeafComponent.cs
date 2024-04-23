@@ -14,4 +14,5 @@ public struct LeafComponent
     public float Width;
     public float MaxHeight;
     public float MaxWidth;
+    public int LeafNumber;
 }

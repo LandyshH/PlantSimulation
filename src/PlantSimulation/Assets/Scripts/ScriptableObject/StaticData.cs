@@ -12,5 +12,7 @@ public class StaticData : ScriptableObject
     public float StemHeightDiff;
     public int PetalCount = 15;
     public List<Vector3> leafPositions;
+    public int Generations = 17;
+    public int CurrGeneration = 0;
 }
 

@@ -25,6 +25,8 @@ public sealed class PetalGrowthSystem : IEcsRunSystem
                 return;
             }
 
+            petal.Size = 8f;
+
             if (environment.Temperature == Assets.Scripts.Enum.Temperature.Max)
             {
                 petal.Size = 6f;
@@ -33,8 +35,6 @@ public sealed class PetalGrowthSystem : IEcsRunSystem
                 {
                     petal.Size -= 2f;
                 }
-
-                continue;
             }
 
             if (environment.Temperature == Assets.Scripts.Enum.Temperature.Max)
@@ -45,11 +45,8 @@ public sealed class PetalGrowthSystem : IEcsRunSystem
                 {
                     petal.Size -= 2f;
                 }
-
-                continue;
             }
 
-            petal.Size = 8f;
 
             var petalCount = _staticData.PetalCount;
 

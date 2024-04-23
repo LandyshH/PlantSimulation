@@ -75,6 +75,8 @@ namespace Assets.Scripts.Systems
                         }
                         break;
                     case SeedGrowthStage.TorpedoShaped:
+                        Debug.Log(seedComponent.Lifetime);
+
                         seedComponent.Lifetime += Time.deltaTime;
                         staticData.GoToNextStage = true;
                         break;

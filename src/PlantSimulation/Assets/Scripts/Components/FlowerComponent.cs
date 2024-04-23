@@ -6,7 +6,7 @@ public struct FlowerComponent
 {
     public float Size;
     public float Lifetime;
-    public bool IsBud;
-    public bool IsWaterLack;
+    public float maxSize;
     public Vector3 Position;
+    public GameObject FlowerGO;
 }

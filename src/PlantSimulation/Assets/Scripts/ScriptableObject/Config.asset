@@ -17,3 +17,5 @@ MonoBehaviour:
   GoToNextStage: 0
   StemHeightDiff: 0.0065812916
   PetalCount: 15
+  leafPositions: []
+  Generations: 17
