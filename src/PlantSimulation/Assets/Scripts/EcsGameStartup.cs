@@ -3,6 +3,7 @@ using Assets.Scripts.Enum;
 using Assets.Scripts.LSystem;
 using Assets.Scripts.ProceduralGeneration.Sunflower.ScriptableObjects;
 using Assets.Scripts.Systems;
+using Assets.Scripts.Systems.Lychnis;
 using Assets.Scripts.Systems.Lychnis.Flower;
 using Assets.Scripts.Systems.Lychnis.Leaf;
 using Assets.Scripts.Systems.Lychnis.Stem;
@@ -17,8 +18,8 @@ public class EcsGamestartup : MonoBehaviour
     public UI ui;
     public PlantType plantType;
     public SunflowerObjects sunflowerObjects;
-    //public LychnisCoronariaPrefabs LychnisCoronariaPrefabs;
-   // private Turtle turtle;
+    public MintPrefabs LychnisCoronariaPrefabs;
+    // private Turtle turtle;
     // private TransformData data;
     private EcsWorld ecsWorld;
     private EcsSystems systems;
@@ -54,9 +55,9 @@ public class EcsGamestartup : MonoBehaviour
             .Inject(ui)
             .Inject(plantType)
             .Inject(sunflowerObjects)
-        //    .Inject(turtle)
-        //    .Inject(data)
-            //.Inject(LychnisCoronariaPrefabs)
+            //    .Inject(turtle)
+            //    .Inject(data)
+            .Inject(LychnisCoronariaPrefabs)
             ;
     }
 
@@ -100,8 +101,21 @@ public class EcsGamestartup : MonoBehaviour
     private void AddLychnisSystems()
     {
         systems
+                .Add(new FirstInitSystem())
                 .Add(new MintGenerationSystem())
-                //.Add(new LychnisGrowStemSystem())
+                .Add(new MintInputSystem())
+                .Add(new LychnisFlowerAnimationSystem())
+               // .Add(new LychnisGrowStemSystem())
+               // .Add(new LychnisGrowLeafSystem())
+                /*.Add(new CreateBlockSystem())
+                .Add(new GoToNextStageSendEventSystem())
+                .Add(new GoToNextStageSystem())
+                .Add(new InputSystem())
+
+                .Add(new CreateRootSystem())
+                .Add(new RootGrowthSystem())
+
+                .Add(new LychnisGrowStemSystem())*/
                 //.Add(new LychnisGrowLeafSystem())
 
                 //.Add(new LychnisAnimationStemSystem())
@@ -142,9 +156,9 @@ public class EcsGamestartup : MonoBehaviour
 
     private void OnDestroy()
     {
-        if ( systems == null ) 
+        if (systems == null)
         {
-            return; 
+            return;
         }
 
         systems.Destroy();

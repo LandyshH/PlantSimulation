@@ -16,9 +16,11 @@ namespace Assets.Scripts.Systems.Lychnis.Leaf
             foreach(var i in _filter)
             {
                 ref var component = ref _filter.Get1(i);
-                var t = staticData.Generations - component.LeafNumber;
 
-                if (t != staticData.CurrGeneration) continue;
+                if (component.Lifetime < Time.deltaTime * i)
+                {
+                    continue;
+                }
 
                 if (component.Width < component.MaxWidth)
                 {

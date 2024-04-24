@@ -9,4 +9,5 @@ public struct FlowerComponent
     public float maxSize;
     public Vector3 Position;
     public GameObject FlowerGO;
+    public bool ChangedToFlower;
 }

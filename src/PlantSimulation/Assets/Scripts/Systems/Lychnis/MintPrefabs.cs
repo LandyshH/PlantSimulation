@@ -8,7 +8,7 @@ using UnityEngine;
 namespace Assets.Scripts.Systems.Lychnis
 {
     [CreateAssetMenu]
-    public class LychnisCoronariaPrefabs : ScriptableObject
+    public class MintPrefabs : ScriptableObject
     {
         public GameObject StemPrefab;
         public GameObject LeafPrefab;

@@ -14,5 +14,10 @@ public class StaticData : ScriptableObject
     public List<Vector3> leafPositions;
     public int Generations = 17;
     public int CurrGeneration = 0;
+
+    public bool SproutGenerated = false;
+    public bool JuvnileGenerated = false;
+    public bool MaturityGenerated = false;
+    public bool SenileGenerated = false;
 }
 

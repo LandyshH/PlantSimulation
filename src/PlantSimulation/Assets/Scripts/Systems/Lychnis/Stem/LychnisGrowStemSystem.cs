@@ -18,19 +18,9 @@ namespace Assets.Scripts.Systems.Lychnis.Stem
             {
                 ref var stem = ref _stemFilter.Get1(i);
                 stem.Lifetime += Time.deltaTime;
-
-                if (i > 0)
+                if (stem.Lifetime < Time.deltaTime * i)
                 {
-                    ref var prevStem = ref _stemFilter.Get1(i - 1);
-
-                    if (prevStem.IsGrowing) 
-                    {
-                        return; 
-                    }
-                }
-                else
-                {
-                    staticData.CurrGeneration = 0;
+                    continue;
                 }
 
                 if (stem.Width < stem.MaxWidth)
@@ -46,12 +36,7 @@ namespace Assets.Scripts.Systems.Lychnis.Stem
                 if (stem.Height >= stem.MaxHeight)
                 {
                     stem.IsGrowing = false;
-                    staticData.CurrGeneration++;
                 }
-                else 
-                {
-                    stem.IsGrowing = true;
-                } 
 
                 Vector3 maxScale = new Vector3(stem.Width, stem.Height, stem.Width);
                 stem.stemGO.transform.localScale = Vector3.Lerp(stem.stemGO.transform.localScale, maxScale, 2 * Time.deltaTime);

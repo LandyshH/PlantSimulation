@@ -1,21 +1,29 @@
-﻿using Leopotam.Ecs;
+﻿using Assets.Scripts.Systems.Lychnis;
+using Leopotam.Ecs;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
 namespace Assets.Scripts.LSystem
 {
-    public class MintGenerationSystem : IEcsInitSystem
+    public class MintGenerationSystem : IEcsRunSystem
     {
         private readonly EcsWorld _ecsWorld;
 
         private StaticData staticData;
         private EnvironmentSettings environment;
+        public MintPrefabs MintPrefabs;
 
-        private float StemLength = 0.03f;
-        private float StemWidth = 0.007f;
-        private float flowerSize = 0.02f;
-        private int generations = 5;
+        private float StemLength = 0.01f;
+        private float StemWidth = 0.2f;
+        private float flowerSize = 0.3f;
+        private float LeafLength = 0.3f;
+        private float LeafWidth = 0.3f;
+        private int generations = 7;
+
+        private int LeafCount = 0;
+        private int StemCount = 0;
+        //private int FlowerCount = 0;
 
         private float angle = 45;
         private float leafAngle = 60;
@@ -25,11 +33,11 @@ namespace Assets.Scripts.LSystem
         private Stack<Turtle> stack = new Stack<Turtle>();
 
         private Dictionary<string, List<string>> ruleset = new Dictionary<string, List<string>>()
-{
+{           // обыграть количество цветов
             {"F", new List<string>{"FF" }}, //R - random angle "F[RL]"
             {"A", new List<string>{"F[SL][DL][-Fa][+Fa]FA"}}, //"F[-L][+L]FA", 
             {"a", new List<string>{"F[SL][DL]Fb"}}, //"F[SL][DL]Fa"
-            {"b", new List<string>{"F[SL][DL][+FK]F[-FK]Fb"}}
+            {"b", new List<string>{"F[+K][-K]Fb", "F[+K][-K][++K][--K]Fb"}}
 };
 
         /* {"a", "I[L]a" },
@@ -39,9 +47,66 @@ namespace Assets.Scripts.LSystem
      { "b", "I[L]b" },
      { "b", "I[L]B" },
      { "B", "I[K]B" },*/
-        public void Init()
+        public void Run()
         {
-            GenerateAndDrawLSystem();
+            if (staticData.PlantGrowthStage == Enum.PlantGrowthStage.Embryonic && !staticData.SproutGenerated)
+            {
+                StemLength = 0.2f;
+                StemWidth = 0.3f;
+                flowerSize = 0.1f;
+                LeafLength = 0.5f;
+                LeafWidth = 0.5f;
+
+                generations = 1;
+                GenerateAndDrawLSystem();
+
+                staticData.SproutGenerated = true;
+                return;
+            }
+
+            if (staticData.PlantGrowthStage == Enum.PlantGrowthStage.Juvenile && !staticData.JuvnileGenerated)
+            {
+                var plant = GameObject.FindGameObjectsWithTag("Plant").FirstOrDefault();
+
+                foreach (Transform child in plant.transform) Object.Destroy(child.gameObject);
+
+                StemLength = 0.01f;
+                StemWidth = 0.2f;
+                flowerSize = 0.3f;
+                LeafLength = 0.3f;
+                LeafWidth = 0.3f;
+
+                generations = 7;
+                GenerateAndDrawLSystem();
+
+                staticData.JuvnileGenerated = true;
+                return;
+            }
+
+            if (staticData.JuvnileGenerated)
+            {
+                return;
+            }
+        }
+
+
+        private void CalculateGrowth()
+        {
+            if (environment.Water == Enum.Water.Lack)
+            {
+                // - размер цветка, листьев, тыры пыры
+            }
+
+            if (environment.Water == Enum.Water.Excess)
+            {
+                // - размер цветка, листьев, тыры пыры
+            }
+
+            StemLength = 0.01f;
+            StemWidth = 0.007f;
+            flowerSize = 0.02f;
+            LeafLength = 0.01f;
+            LeafWidth = 0.007f;
         }
 
         private void GenerateAndDrawLSystem()
@@ -71,7 +136,7 @@ namespace Assets.Scripts.LSystem
                 if (ruleset.ContainsKey(c.ToString()))
                 {
                     List<string> possibleRules = ruleset[c.ToString()];
-                    string selectedRule = possibleRules[Random.Range(0, possibleRules.Count)]; // Выбираем случайное правило из списка возможных
+                    string selectedRule = possibleRules[Random.Range(0, possibleRules.Count)];
                     output += selectedRule;
                 }
                 else
@@ -83,18 +148,13 @@ namespace Assets.Scripts.LSystem
         }
 
 
-
-
-        /*{"a", "F[-L][+L]Fa" }, 
-            {"a", "F[-L][-A][+A][+L]Fa" }, 
-            {"A", "F[K]FA" },*/
         private void DrawLSystem(string lSystemString)
         {
             var plant = GameObject.FindGameObjectsWithTag("Plant").FirstOrDefault();
 
-            Turtle turtle = new Turtle(plant.transform.rotation, plant.transform.position, 
-                Vector3.up * StemLength);
+            Turtle turtle = new Turtle(plant.transform.rotation, plant.transform.position, Vector3.up * StemLength);
 
+            var stemLengthCounter = 0;
 
             for (int i = 0; i < lSystemString.Length; i++)
             {
@@ -105,6 +165,7 @@ namespace Assets.Scripts.LSystem
                     case 'F':
                         DrawStem(turtle.position, turtle.direction);
                         turtle.Forward();
+                        stemLengthCounter++;
                         break;
                     case 'L':
                         DrawLeaf(turtle.position, turtle.direction);
@@ -119,16 +180,20 @@ namespace Assets.Scripts.LSystem
                         DrawFlower(turtle.position, turtle.direction);
                         break;
                     case '+':
-                        turtle.RotateZ(angle);
+                        turtle.RotateZ(Random.Range(angle - 15, angle + 15)); 
+                        turtle.RotateX(Random.Range(-45, 45)); 
                         break;
                     case '-':
-                        turtle.RotateZ(-angle);
+                        turtle.RotateZ(Random.Range(-angle - 15, -angle + 15)); 
+                        turtle.RotateX(Random.Range(-45, 45)); 
                         break;
                     case 'D':
-                        turtle.RotateZ(leafAngle);
+                        turtle.RotateY(leafAngle);
+                        turtle.RotateY(Random.Range(0, 90));
                         break;
                     case 'S':
-                        turtle.RotateZ(-leafAngle);
+                        turtle.RotateY(-leafAngle);
+                        turtle.RotateY(Random.Range(-90, 0));
                         break;
                     case '[':
                         stack.Push(turtle);
@@ -140,10 +205,12 @@ namespace Assets.Scripts.LSystem
             }
         }
 
-
         private void DrawStem(Vector3 position, Quaternion direction)
         {
-            GameObject stem = GameObject.CreatePrimitive(PrimitiveType.Cylinder);
+            if(StemWidth > 0)
+                StemWidth -= StemCount * 0.0000004f;
+            StemCount++;
+            var stem = GameObject.Instantiate(MintPrefabs.StemPrefab);
             stem.transform.position = position;
             stem.transform.rotation = direction;
             stem.transform.localScale = new Vector3(StemWidth, StemLength, StemWidth);
@@ -151,39 +218,33 @@ namespace Assets.Scripts.LSystem
 
             var plant = GameObject.FindGameObjectsWithTag("Plant").FirstOrDefault();
             stem.transform.parent = plant.transform;
-            Renderer leafRenderer = stem.GetComponent<Renderer>();
-            leafRenderer.material.color = Color.green;
 
             var stemEntity = _ecsWorld.NewEntity();
             ref var stemComponent = ref stemEntity.Get<StemComponent>();
 
-            /* stemComponent.Lifetime = 0;
-             stemComponent.Position = position;
-             stemComponent.Height = 0;
-             stemComponent.MaxHeight = StemLength * stemLengthCounter;
-             stemComponent.Width = StemWidth;
-             stemComponent.MaxWidth = 0.02f;
-             stemComponent.stemGO = stem;*/
-
-            //var maxScale = new Vector3(StemWidth, stemComponent.MaxHeight, StemWidth);
-            //stem.transform.localScale = Vector3.Lerp(stem.transform.localScale, maxScale, Time.deltaTime);
+            stemComponent.Lifetime = 0;
+            stemComponent.Position = position;
+            stemComponent.Height = 0;
+            stemComponent.MaxHeight = StemLength;
+            stemComponent.Width = StemWidth;
+            stemComponent.MaxWidth = 0.01f;
+            stemComponent.stemGO = stem;
         }
 
         private void DrawLeaf(Vector3 position, Quaternion direction)
         {
-            GameObject leaf = GameObject.CreatePrimitive(PrimitiveType.Cube);
+            if (LeafCount > 26) return;
 
-            leaf.transform.localScale = new Vector3(0.03f, 0.001f, 0.1f);
-            //leaf.transform.localScale = new Vector3(0f, 0.0f, 0f);
+            LeafCount++;
+
+            var leaf = GameObject.Instantiate(MintPrefabs.LeafPrefab);
+            leaf.transform.localScale = new Vector3(LeafWidth, 1f, LeafLength);
             leaf.transform.position = position;
             leaf.transform.rotation = direction;
-            leaf.name = "Leaf ";
+            leaf.name = "Leaf " + LeafCount;
 
             var plant = GameObject.FindGameObjectsWithTag("Plant").FirstOrDefault();
             leaf.transform.parent = plant.transform;
-
-            Renderer leafRenderer = leaf.GetComponent<Renderer>();
-            leafRenderer.material.color = Color.yellow;
 
             var leafEntity = _ecsWorld.NewEntity();
             ref var component = ref leafEntity.Get<LeafComponent>();
@@ -198,7 +259,16 @@ namespace Assets.Scripts.LSystem
 
         private void DrawFlower(Vector3 position, Quaternion direction)
         {
-            GameObject flower = GameObject.CreatePrimitive(PrimitiveType.Sphere);
+            GameObject flower;
+            if (staticData.PlantGrowthStage == Enum.PlantGrowthStage.Juvenile)
+            {
+                flower = GameObject.Instantiate(MintPrefabs.BudPrefab);
+            }
+            else
+            {
+                flower = GameObject.Instantiate(MintPrefabs.FlowerPrefab);
+            }
+
             flower.transform.localScale = new Vector3(flowerSize, flowerSize, flowerSize);
             flower.transform.position = position;
             flower.transform.rotation = direction;
@@ -207,16 +277,9 @@ namespace Assets.Scripts.LSystem
             var plant = GameObject.FindGameObjectsWithTag("Plant").FirstOrDefault();
             flower.transform.parent = plant.transform;
 
-            Renderer flowerRenderer = flower.GetComponent<Renderer>();
-            flowerRenderer.material.color = Color.red;
-
             var entity = _ecsWorld.NewEntity();
             ref var component = ref entity.Get<FlowerComponent>();
-
-            /*component.Lifetime = 0;
-            component.Size = 0;
-            component.maxSize = flowerSize;
-            component.FlowerGO = flower;*/
+            component.FlowerGO = flower;
         }
 
         private struct Turtle

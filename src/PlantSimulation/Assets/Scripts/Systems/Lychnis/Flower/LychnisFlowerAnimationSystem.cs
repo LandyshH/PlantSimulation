@@ -1,17 +1,38 @@
 ﻿using Leopotam.Ecs;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using UnityEngine;
 
 namespace Assets.Scripts.Systems.Lychnis.Flower
 {
     public class LychnisFlowerAnimationSystem : IEcsRunSystem
     {
+        private EcsFilter<FlowerComponent> _filter;
+        private StaticData _staticData;
+        private MintPrefabs _prefabs;
+
         public void Run()
         {
-            throw new NotImplementedException();
+            if (_staticData.PlantGrowthStage != Enum.PlantGrowthStage.MaturityAndReproduction)
+            {
+                return;
+            }
+
+            foreach (var i in _filter)
+            {
+                ref var component = ref _filter.Get1(i);
+
+                if (component.FlowerGO == null || component.ChangedToFlower) continue;
+
+                var transform = component.FlowerGO.transform;
+                var scale = component.FlowerGO.transform.localScale;
+                Object.Destroy(component.FlowerGO);
+
+                var flower = Object.Instantiate(_prefabs.FlowerPrefab, transform.position, transform.rotation, null);
+                flower.transform.localScale = scale;
+
+                component.FlowerGO = flower;
+
+                component.ChangedToFlower = true;
+            }
         }
     }
 }

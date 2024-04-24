@@ -13,9 +13,14 @@ MonoBehaviour:
   m_Name: Config
   m_EditorClassIdentifier: 
   SeedPrefab: {fileID: 1641309589632535731, guid: 84a9713418710a44da7e0f61162540d8, type: 3}
-  PlantGrowthStage: 3
-  GoToNextStage: 0
+  PlantGrowthStage: 5
+  GoToNextStage: 1
   StemHeightDiff: 0.0065812916
   PetalCount: 15
   leafPositions: []
   Generations: 17
+  CurrGeneration: 0
+  SproutGenerated: 1
+  JuvnileGenerated: 1
+  MaturityGenerated: 0
+  SenileGenerated: 0

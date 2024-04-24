@@ -8060,6 +8060,7 @@ MonoBehaviour:
   ui: {fileID: 200026979}
   plantType: 1
   sunflowerObjects: {fileID: 11400000, guid: f8515b0fb97fa0043aec6456901448ca, type: 2}
+  LychnisCoronariaPrefabs: {fileID: 11400000, guid: 7e874e72e1a88304498a2e8149361172, type: 2}
 --- !u!1 &1999611711
 GameObject:
   m_ObjectHideFlags: 0

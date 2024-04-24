@@ -20,7 +20,7 @@ namespace Assets.Scripts.Systems.Lychnis
         public StaticData configuration;
         public EnvironmentSettings environmentSettings;
         public UI ui;
-        public LychnisCoronariaPrefabs LychnisCoronariaPrefabs;
+        public MintPrefabs LychnisCoronariaPrefabs;
         private EcsWorld ecsWorld;
         private EcsSystems systems;
 

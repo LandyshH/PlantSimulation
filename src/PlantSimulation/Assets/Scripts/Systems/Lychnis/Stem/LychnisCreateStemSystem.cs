@@ -1,34 +1,42 @@
-﻿using Leopotam.Ecs;
+﻿using Assets.Scripts.ProceduralGeneration.Sunflower.ScriptableObjects;
+using Leopotam.Ecs;
 using System.Linq;
 using UnityEngine;
 using static UnityEditor.Progress;
 
 namespace Assets.Scripts.Systems.Lychnis.Stem
 {
-    public class LychnisCreateStemSystem : IEcsRunSystem
+    public class LychnisCreateStemSystem : IEcsInitSystem
     {
         private readonly EcsWorld _ecsWorld;
 
-        EcsFilter<StemComponent> _filter;
+        EcsFilter<RootComponent> _filter;
 
-        public LychnisCoronariaPrefabs LychnisCoronariaPrefabs;
+        public SunflowerObjects sunflowerObjects;
         private StaticData staticData;
         private EnvironmentSettings environment;
 
-        public void Run()
+        public void Init()
         {
-            foreach (var i in _filter)
-            {
-                ref var stemComponent = ref _filter.Get1(i);
-                stemComponent.Lifetime = 0;
-                stemComponent.Position = stemComponent.stemGO.transform.position;
-                stemComponent.Height = 0;
-                stemComponent.MaxHeight = stemComponent.stemGO.transform.localScale.y;
-                stemComponent.Width = 0.01f;
-                stemComponent.MaxWidth = 0.03f;
+            ref var rootComponent = ref _filter.Get1(0);
 
-                stemComponent.stemGO.transform.localScale = Vector3.zero;
-            }
+            var stemEntity = _ecsWorld.NewEntity();
+            ref var stem = ref stemEntity.Get<StemComponent>();
+
+            stem.Lifetime = 0;
+            stem.Position = rootComponent.Position;
+            stem.Height = 0;
+            stem.MaxHeight = 15f;
+            stem.Width = 0.1f;
+            stem.MaxWidth = 3f;
+            staticData.StemHeightDiff = 0;
+
+            var plant = GameObject.FindGameObjectsWithTag("Plant").FirstOrDefault();
+
+            var stemGO = Object.Instantiate(sunflowerObjects.StemPrefab, plant.transform);
+            stemGO.name = "Stem";
+            stemGO.transform.localScale = new Vector3(stem.Width, stem.Width, stem.Height);
+            stemGO.transform.localPosition = Vector3.zero;
         }
     }
 }
