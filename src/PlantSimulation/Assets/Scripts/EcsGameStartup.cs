@@ -39,8 +39,8 @@ public class EcsGamestartup : MonoBehaviour
             case PlantType.Sunflower:
                 AddSunflowerSystems();
                 break;
-            case PlantType.Lychnis:
-                AddLychnisSystems();
+            case PlantType.Mint:
+                AddMintSystems();
                 break;
         }
 
@@ -98,13 +98,14 @@ public class EcsGamestartup : MonoBehaviour
             ;
     }
 
-    private void AddLychnisSystems()
+    private void AddMintSystems()
     {
         systems
                 .Add(new FirstInitSystem())
                 .Add(new MintGenerationSystem())
                 .Add(new MintInputSystem())
-                .Add(new LychnisFlowerAnimationSystem())
+                .Add(new MintFlowerAnimationSystem())
+                .Add(new MintLeafAnimationSystem())
                // .Add(new LychnisGrowStemSystem())
                // .Add(new LychnisGrowLeafSystem())
                 /*.Add(new CreateBlockSystem())

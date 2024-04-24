@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Light: 1
   Water: 1
-  Temperature: 1
+  Temperature: 2
   Minerals: 1
   Oxygen: 1
   CarbonDioxide: 1

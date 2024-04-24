@@ -23,7 +23,6 @@ namespace Assets.Scripts.LSystem
 
         private int LeafCount = 0;
         private int StemCount = 0;
-        //private int FlowerCount = 0;
 
         private float angle = 45;
         private float leafAngle = 60;
@@ -34,10 +33,10 @@ namespace Assets.Scripts.LSystem
 
         private Dictionary<string, List<string>> ruleset = new Dictionary<string, List<string>>()
 {           // обыграть количество цветов
-            {"F", new List<string>{"FF" }}, //R - random angle "F[RL]"
-            {"A", new List<string>{"F[SL][DL][-Fa][+Fa]FA"}}, //"F[-L][+L]FA", 
-            {"a", new List<string>{"F[SL][DL]Fb"}}, //"F[SL][DL]Fa"
-            {"b", new List<string>{"F[+K][-K]Fb", "F[+K][-K][++K][--K]Fb"}}
+            {"F", new List<string>{"FF" }}, 
+            {"A", new List<string>{"F[SL][DL][-Fa][+Fa]FA"}}, 
+            {"a", new List<string>{"F[SL][DL]Fb"}},
+            {"b", new List<string>{"F[+K][-K]Fb", "F[+K][-K][++K][--K]Fb","F[+K][-K][++K][--K][+K][-K]Fb"}}
 };
 
         /* {"a", "I[L]a" },
@@ -76,6 +75,8 @@ namespace Assets.Scripts.LSystem
                 LeafLength = 0.3f;
                 LeafWidth = 0.3f;
 
+                CalculateGrowth();
+
                 generations = 7;
                 GenerateAndDrawLSystem();
 
@@ -92,21 +93,50 @@ namespace Assets.Scripts.LSystem
 
         private void CalculateGrowth()
         {
-            if (environment.Water == Enum.Water.Lack)
+            if (environment.Water == Enum.Water.Lack || environment.Water == Enum.Water.Excess)
             {
-                // - размер цветка, листьев, тыры пыры
+                StemLength -= 0.003f;
+                StemWidth -= 0.001f;
+
+                flowerSize -= 0.1f;
+
+                LeafWidth -= 0.07f;
+                LeafLength -= 0.07f;
             }
 
-            if (environment.Water == Enum.Water.Excess)
+            if (environment.Temperature == Enum.Temperature.Max)
             {
-                // - размер цветка, листьев, тыры пыры
+                StemLength -= 0.005f;
+                StemWidth -= 0.001f;
+
+                flowerSize -= 0.1f;
+
+                LeafWidth -= 0.1f;
+                LeafLength -= 0.1f;
             }
 
-            StemLength = 0.01f;
-            StemWidth = 0.007f;
-            flowerSize = 0.02f;
-            LeafLength = 0.01f;
-            LeafWidth = 0.007f;
+            if (environment.Temperature == Enum.Temperature.Min)
+            {
+                StemLength -= 0.005f;
+                StemWidth -= 0.001f;
+                flowerSize -= 0.1f;
+                LeafWidth -= 0.1f;
+            }
+
+            if (environment.Oxygen == Enum.Oxygen.Lack || environment.Oxygen == Enum.Oxygen.Excess)
+            {
+                StemLength -= 0.002f;
+                LeafWidth -= 0.05f;
+                LeafLength -= 0.05f;
+            }
+
+            if (environment.Light == Enum.LightColor.Darkness)
+            {
+                StemLength -= 0.0005f;
+
+                LeafWidth -= 0.1f;
+                LeafLength -= 0.1f;
+            }
         }
 
         private void GenerateAndDrawLSystem()
@@ -146,7 +176,6 @@ namespace Assets.Scripts.LSystem
             }
             return output;
         }
-
 
         private void DrawLSystem(string lSystemString)
         {

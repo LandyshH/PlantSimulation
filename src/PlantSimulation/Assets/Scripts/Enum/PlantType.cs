@@ -9,6 +9,6 @@ namespace Assets.Scripts.Enum
     public enum PlantType
     {
         Sunflower, 
-        Lychnis
+        Mint
     }
 }

@@ -14,7 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   StemPrefab: {fileID: 7407756339908614020, guid: fae32f08920229b4b8dfeb1ea7ded13a, type: 3}
   LeafPrefab: {fileID: 2369165852163169784, guid: fae32f08920229b4b8dfeb1ea7ded13a, type: 3}
-  DryLeafPrefab: {fileID: 0}
+  DryLeafPrefab: {fileID: 919132149155446097, guid: 3412993802f75b5469a06b60be7b8c9c, type: 3}
+  RustLeafPrefab: {fileID: 919132149155446097, guid: 307c9b92e453a2b4c9236e12a4203e4f, type: 3}
   FlowerPrefab: {fileID: 919132149155446097, guid: 4dc45f075c4fb8d45bf78afb4cfdda95, type: 3}
   BudPrefab: {fileID: 919132149155446097, guid: 815b57898dedb9b46a0dd220aa321e17, type: 3}
   FruitPrefab: {fileID: 0}

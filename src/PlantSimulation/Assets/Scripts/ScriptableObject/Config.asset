@@ -13,14 +13,29 @@ MonoBehaviour:
   m_Name: Config
   m_EditorClassIdentifier: 
   SeedPrefab: {fileID: 1641309589632535731, guid: 84a9713418710a44da7e0f61162540d8, type: 3}
-  PlantGrowthStage: 5
-  GoToNextStage: 1
-  StemHeightDiff: 0.0065812916
+  PlantGrowthStage: 3
+  GoToNextStage: 0
+  StemHeightDiff: 0
   PetalCount: 15
-  leafPositions: []
+  leafPositions:
+  - {x: 0.08517586, y: 0.5314877, z: 0.585939}
+  - {x: 0.08517586, y: 0.6477679, z: 0.585939}
+  - {x: 0.08517586, y: 0.9835143, z: 0.585939}
+  - {x: 0.08517586, y: 0.876375, z: 0.585939}
+  - {x: 0.08517586, y: 1.2218187, z: 0.585939}
+  - {x: 0.08517586, y: 1.6964134, z: 0.585939}
+  - {x: 0.08517586, y: 1.5892402, z: 0.585939}
+  - {x: 0.08517586, y: 1.9245743, z: 0.585939}
+  - {x: 0.08517586, y: 2.0507174, z: 0.585939}
+  - {x: 0.08517586, y: 1.3369371, z: 0.585939}
+  - {x: 0.08517586, y: 2.241142, z: 0.585939}
+  - {x: 0.08517586, y: 2.3635514, z: 0.585939}
+  - {x: 0.08517586, y: 2.5606973, z: 0.585939}
+  - {x: 0.08517586, y: 1.4585637, z: 0.585939}
+  - {x: 0.08517586, y: 2.8874283, z: 0.585939}
   Generations: 17
   CurrGeneration: 0
-  SproutGenerated: 1
-  JuvnileGenerated: 1
+  SproutGenerated: 0
+  JuvnileGenerated: 0
   MaturityGenerated: 0
   SenileGenerated: 0

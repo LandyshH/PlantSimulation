@@ -12,5 +12,6 @@ namespace Assets.Scripts.ProceduralGeneration.Sunflower.ScriptableObjects
         public GameObject PetalPrefab;
         public GameObject SeedsPrefab;
         public GameObject BudPrefab;
+        public GameObject JuvenileBudPrefab;
     }
 }

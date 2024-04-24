@@ -1,4 +1,5 @@
-﻿using Leopotam.Ecs;
+﻿using Assets.Scripts.Enum;
+using Leopotam.Ecs;
 
 
 namespace Assets.Scripts.Systems.Lychnis
@@ -11,11 +12,18 @@ namespace Assets.Scripts.Systems.Lychnis
 
         public void Init()
         {
-            staticData.PlantGrowthStage = Enum.PlantGrowthStage.Embryonic;
+            staticData.PlantGrowthStage = PlantGrowthStage.Embryonic;
             ui.environmentWindowScreen.SetActive(false);
             staticData.JuvnileGenerated = false;
             staticData.SproutGenerated = false;
             staticData.MaturityGenerated = false;
+
+            environment.Light = LightColor.Sun;
+            environment.Water = Water.Optimal;
+            environment.Temperature = Temperature.Optimal;
+            environment.CarbonDioxide = CarbonDioxide.Optimal;
+            environment.Oxygen = Oxygen.Optimal;
+            environment.Minerals = Minerals.Optimal;
         }
     }
 }

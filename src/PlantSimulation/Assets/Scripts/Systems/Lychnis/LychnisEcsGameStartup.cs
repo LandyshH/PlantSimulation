@@ -68,11 +68,11 @@ namespace Assets.Scripts.Systems.Lychnis
 
                 .Add(new LychnisCreateLeafSystem())
                 .Add(new LychnisGrowLeafSystem())
-                .Add(new LychnisLeafAnimationSystem())
+                .Add(new MintLeafAnimationSystem())
 
                 .Add(new LychnisCreateFlowerSystem())
                 .Add(new LychnisGrowFlowerSystem())
-                .Add(new LychnisFlowerAnimationSystem())
+                .Add(new MintFlowerAnimationSystem())
                 ;
         }
 

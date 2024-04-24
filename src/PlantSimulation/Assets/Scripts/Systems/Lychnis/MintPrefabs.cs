@@ -13,6 +13,7 @@ namespace Assets.Scripts.Systems.Lychnis
         public GameObject StemPrefab;
         public GameObject LeafPrefab;
         public GameObject DryLeafPrefab;
+        public GameObject RustLeafPrefab;
         public GameObject FlowerPrefab;
         public GameObject BudPrefab;
         public GameObject FruitPrefab;
