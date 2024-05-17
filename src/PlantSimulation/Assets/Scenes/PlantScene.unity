@@ -8241,9 +8241,10 @@ MonoBehaviour:
   configuration: {fileID: 11400000, guid: ea677111c347a7349be3cfe0f2dfab17, type: 2}
   environmentSettings: {fileID: 11400000, guid: 3b033e34aba0d5c469937234818c4f8c, type: 2}
   ui: {fileID: 200026979}
-  plantType: 1
+  plantType: 2
   sunflowerObjects: {fileID: 11400000, guid: f8515b0fb97fa0043aec6456901448ca, type: 2}
-  LychnisCoronariaPrefabs: {fileID: 11400000, guid: 7e874e72e1a88304498a2e8149361172, type: 2}
+  MintPrefabs: {fileID: 11400000, guid: 7e874e72e1a88304498a2e8149361172, type: 2}
+  StrawberryObjects: {fileID: 11400000, guid: 4ca1ae0e6dd6d6541b58708d9e624ac0, type: 2}
 --- !u!1 &1999611711
 GameObject:
   m_ObjectHideFlags: 0

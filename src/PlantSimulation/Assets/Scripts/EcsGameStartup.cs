@@ -1,12 +1,12 @@
 using Assets.Scripts.Components.Events;
 using Assets.Scripts.Enum;
 using Assets.Scripts.LSystem;
+using Assets.Scripts.LSystem.Strawberry;
 using Assets.Scripts.ProceduralGeneration.Sunflower.ScriptableObjects;
 using Assets.Scripts.Systems;
 using Assets.Scripts.Systems.Lychnis;
 using Assets.Scripts.Systems.Lychnis.Flower;
 using Assets.Scripts.Systems.Lychnis.Leaf;
-using Assets.Scripts.Systems.Lychnis.Stem;
 using Leopotam.Ecs;
 using UnityEngine;
 using Voody.UniLeo;
@@ -18,9 +18,8 @@ public class EcsGamestartup : MonoBehaviour
     public UI ui;
     public PlantType plantType;
     public SunflowerObjects sunflowerObjects;
-    public MintPrefabs LychnisCoronariaPrefabs;
-    // private Turtle turtle;
-    // private TransformData data;
+    public MintPrefabs MintPrefabs;
+    public StrawberryObjects StrawberryObjects;
     private EcsWorld ecsWorld;
     private EcsSystems systems;
 
@@ -42,6 +41,9 @@ public class EcsGamestartup : MonoBehaviour
             case PlantType.Mint:
                 AddMintSystems();
                 break;
+            case PlantType.Strawberry:
+                AddStrawberrySystems();
+                break;
         }
 
         systems.Init();
@@ -55,9 +57,8 @@ public class EcsGamestartup : MonoBehaviour
             .Inject(ui)
             .Inject(plantType)
             .Inject(sunflowerObjects)
-            //    .Inject(turtle)
-            //    .Inject(data)
-            .Inject(LychnisCoronariaPrefabs)
+            .Inject(MintPrefabs)
+            .Inject(StrawberryObjects)
             ;
     }
 
@@ -142,6 +143,18 @@ public class EcsGamestartup : MonoBehaviour
                 .Add(new LychnisCreateFlowerSystem())
                 .Add(new LychnisGrowFlowerSystem())
                 .Add(new LychnisFlowerAnimationSystem())*/
+                ;
+    }
+
+    private void AddStrawberrySystems()
+    {
+        systems
+                .Add(new FirstInitSystem())
+                .Add(new StrawberryGenerationSystem())
+                .Add(new MintInputSystem())
+                .Add(new StrawberryStemAnimationSystem())
+                .Add(new StrawberryLeafAnimationSystem())
+                .Add(new StrawberryAnimationSystem())
                 ;
     }
 

@@ -37,7 +37,7 @@ namespace Assets.Scripts.Systems.Lychnis.Leaf
                         component.LeafGO = rustLeaf;
                     }
 
-                    component.ChangedToRust = true; //поставить блок на время вместо флага
+                    component.ChangedToRust = true; 
                 }
                 else if (environment.Temperature == Enum.Temperature.Max)
                 {

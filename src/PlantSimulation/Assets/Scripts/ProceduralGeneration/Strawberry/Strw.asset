@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 908e33b60d0ed644c9ca33388a252cd1, type: 3}
+  m_Name: Strw
+  m_EditorClassIdentifier: 
+  StemPrefab: {fileID: 919132149155446097, guid: 6de853490f67ef5498b233fde7d9bfef, type: 3}
+  LeafPrefab: {fileID: 919132149155446097, guid: 1e1fb9c1a443f0942b1ddb3521244e23, type: 3}
+  RedFruitPrefab: {fileID: 919132149155446097, guid: 742e7558fb9068c478f74e7163a23cc5, type: 3}
+  WhiteFruitPrefab: {fileID: 919132149155446097, guid: c615dfe765b6abe4c9ae1174007595ab, type: 3}
+  GreenFruitPrefab: {fileID: 919132149155446097, guid: ec6bcb0861bddeb458aa6f88484ea544, type: 3}
+  FlowerPrefab: {fileID: 919132149155446097, guid: 6877c0854a923e24eae5184a62d3ca85, type: 3}
+  BudPrefab: {fileID: 919132149155446097, guid: 40d45fc0612f0474094cb2b15a41aabf, type: 3}
