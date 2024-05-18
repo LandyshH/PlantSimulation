@@ -141,7 +141,7 @@ namespace Assets.Scripts.LSystem.Strawberry
                         break;
                     case 'S':
                         turtle.RotateY(Random.Range(-270, 270));
-                        turtle.RotateZ(Random.Range(-60, 60));
+                        turtle.RotateZ(Random.Range(-20, 10));
                         DrawFlower(turtle.position, turtle.direction);
                         break;
                     case '+':
@@ -187,14 +187,13 @@ namespace Assets.Scripts.LSystem.Strawberry
         private void DrawLeaf(Vector3 position, Quaternion direction)
         {
             var leaf = GameObject.Instantiate(StrawberryPrefabs.LeafPrefab);
-            //leaf.transform.localScale = new Vector3(1f, LeafLength, LeafLength);
             leaf.transform.localScale = new Vector3(1f, 0, 0);
-            leaf.transform.position = position;
             leaf.transform.rotation = direction;
             leaf.name = "Leaf";
 
             var plant = GameObject.FindGameObjectsWithTag("Plant").FirstOrDefault();
             leaf.transform.parent = plant.transform;
+            leaf.transform.position = plant.transform.position;
 
             var leafEntity = _ecsWorld.NewEntity();
             ref var component = ref leafEntity.Get<LeafComponent>();
@@ -205,14 +204,17 @@ namespace Assets.Scripts.LSystem.Strawberry
             component.MaxHeight = LeafLength;
             component.MaxWidth = LeafLength;
             component.LeafGO = leaf;
+
+            component.TargetPosition = position;
         }
+
+
 
         private void DrawFlower(Vector3 position, Quaternion direction)
         {
             GameObject flower = GameObject.Instantiate(StrawberryPrefabs.BudPrefab);
 
-            flower.transform.localScale = new Vector3(flowerSize, flowerSize, flowerSize);
-            flower.transform.position = position;
+            flower.transform.localScale = new Vector3(1f, 0, 0);
 
             Quaternion rotation = Quaternion.Euler(0, direction.eulerAngles.y, direction.eulerAngles.z);
             flower.transform.rotation = rotation;
@@ -221,12 +223,16 @@ namespace Assets.Scripts.LSystem.Strawberry
 
             var plant = GameObject.FindGameObjectsWithTag("Plant").FirstOrDefault();
             flower.transform.parent = plant.transform;
+            flower.transform.position = plant.transform.position;
 
             var entity = _ecsWorld.NewEntity();
             ref var component = ref entity.Get<FlowerComponent>();
             component.Lifetime = 0;
             component.FlowerGO = flower;
             component.IsBud = true;
+            component.maxSize = flowerSize;
+
+            component.TargetPosition = position;
         }
 
         private struct Turtle

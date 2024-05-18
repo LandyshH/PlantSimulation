@@ -15,4 +15,6 @@ public struct FlowerComponent
     public bool ChangedToGreenFruit;
     public bool ChangedToWhiteFruit;
     public bool ChangedToRedFruit;
+
+    public Vector3 TargetPosition;
 }

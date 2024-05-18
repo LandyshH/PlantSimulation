@@ -153,7 +153,7 @@ public class EcsGamestartup : MonoBehaviour
                 .Add(new StrawberryGenerationSystem())
                 .Add(new MintInputSystem())
                 .Add(new StrawberryStemAnimationSystem())
-                .Add(new StrawberryLeafAnimationSystem())
+                //.Add(new StrawberryLeafAnimationSystem())
                 .Add(new StrawberryAnimationSystem())
                 ;
     }

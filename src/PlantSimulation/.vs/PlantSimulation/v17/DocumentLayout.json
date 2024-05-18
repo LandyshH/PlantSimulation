@@ -3,40 +3,44 @@
   "WorkspaceRootPath": "D:\\PlantSimulation\\src\\PlantSimulation\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{8756898E-5478-194E-3496-8297FE322333}|Assembly-CSharp.csproj|D:\\PlantSimulation\\src\\PlantSimulation\\assets\\scripts\\lsystem\\strawberry\\strawberrygenerationsystem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8756898E-5478-194E-3496-8297FE322333}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\lsystem\\strawberry\\strawberrygenerationsystem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{8756898E-5478-194E-3496-8297FE322333}|Assembly-CSharp.csproj|D:\\PlantSimulation\\src\\PlantSimulation\\assets\\scripts\\systems\\strawberry\\strawberrystemanimationsystem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{8756898E-5478-194E-3496-8297FE322333}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\systems\\strawberry\\strawberrystemanimationsystem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{8756898E-5478-194E-3496-8297FE322333}|Assembly-CSharp.csproj|d:\\plantsimulation\\src\\plantsimulation\\assets\\scripts\\systems\\strawberry\\strawberryleafanimationsystem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8756898E-5478-194E-3496-8297FE322333}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\systems\\strawberry\\strawberryleafanimationsystem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{8756898E-5478-194E-3496-8297FE322333}|Assembly-CSharp.csproj|d:\\plantsimulation\\src\\plantsimulation\\assets\\scripts\\lsystem\\strawberry\\strawberrygenerationsystem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8756898E-5478-194E-3496-8297FE322333}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\lsystem\\strawberry\\strawberrygenerationsystem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{8756898E-5478-194E-3496-8297FE322333}|Assembly-CSharp.csproj|D:\\PlantSimulation\\src\\PlantSimulation\\assets\\scripts\\ecsgamestartup.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8756898E-5478-194E-3496-8297FE322333}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\ecsgamestartup.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8756898E-5478-194E-3496-8297FE322333}|Assembly-CSharp.csproj|D:\\PlantSimulation\\src\\PlantSimulation\\assets\\scripts\\systems\\strawberry\\strawberryanimationsystem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8756898E-5478-194E-3496-8297FE322333}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\systems\\strawberry\\strawberryanimationsystem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{8756898E-5478-194E-3496-8297FE322333}|Assembly-CSharp.csproj|D:\\PlantSimulation\\src\\PlantSimulation\\assets\\scripts\\components\\flowercomponent.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8756898E-5478-194E-3496-8297FE322333}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\components\\flowercomponent.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{8756898E-5478-194E-3496-8297FE322333}|Assembly-CSharp.csproj|D:\\PlantSimulation\\src\\PlantSimulation\\assets\\scripts\\systems\\animations\\stemgrowthanimationsystem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{8756898E-5478-194E-3496-8297FE322333}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\systems\\animations\\stemgrowthanimationsystem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{8756898E-5478-194E-3496-8297FE322333}|Assembly-CSharp.csproj|d:\\plantsimulation\\src\\plantsimulation\\assets\\scripts\\lsystem\\lsystemgenerator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{8756898E-5478-194E-3496-8297FE322333}|Assembly-CSharp.csproj|d:\\plantsimulation\\src\\plantsimulation\\assets\\scripts\\components\\leafcomponent.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8756898E-5478-194E-3496-8297FE322333}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\components\\leafcomponent.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8756898E-5478-194E-3496-8297FE322333}|Assembly-CSharp.csproj|D:\\PlantSimulation\\src\\PlantSimulation\\assets\\scripts\\ecsgamestartup.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8756898E-5478-194E-3496-8297FE322333}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\ecsgamestartup.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8756898E-5478-194E-3496-8297FE322333}|Assembly-CSharp.csproj|D:\\PlantSimulation\\src\\PlantSimulation\\assets\\scripts\\systems\\strawberry\\strawberryleafanimationsystem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8756898E-5478-194E-3496-8297FE322333}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\systems\\strawberry\\strawberryleafanimationsystem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8756898E-5478-194E-3496-8297FE322333}|Assembly-CSharp.csproj|D:\\PlantSimulation\\src\\PlantSimulation\\assets\\scripts\\systems\\strawberry\\strawberryanimationsystem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8756898E-5478-194E-3496-8297FE322333}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\systems\\strawberry\\strawberryanimationsystem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8756898E-5478-194E-3496-8297FE322333}|Assembly-CSharp.csproj|D:\\PlantSimulation\\src\\PlantSimulation\\assets\\scripts\\lsystem\\lsystemgenerator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{8756898E-5478-194E-3496-8297FE322333}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\lsystem\\lsystemgenerator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{8756898E-5478-194E-3496-8297FE322333}|Assembly-CSharp.csproj|D:\\PlantSimulation\\src\\PlantSimulation\\assets\\scripts\\components\\stemcomponent.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{8756898E-5478-194E-3496-8297FE322333}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\components\\stemcomponent.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8756898E-5478-194E-3496-8297FE322333}|Assembly-CSharp.csproj|D:\\PlantSimulation\\src\\PlantSimulation\\assets\\scripts\\components\\flowercomponent.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8756898E-5478-194E-3496-8297FE322333}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\components\\flowercomponent.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{8756898E-5478-194E-3496-8297FE322333}|Assembly-CSharp.csproj|D:\\PlantSimulation\\src\\PlantSimulation\\assets\\scripts\\systems\\lychnis\\leaf\\mintleafanimationsystem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -50,17 +54,17 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 6,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "StrawberryGenerationSystem.cs",
               "DocumentMoniker": "D:\\PlantSimulation\\src\\PlantSimulation\\Assets\\Scripts\\LSystem\\Strawberry\\StrawberryGenerationSystem.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\LSystem\\Strawberry\\StrawberryGenerationSystem.cs",
               "ToolTip": "D:\\PlantSimulation\\src\\PlantSimulation\\Assets\\Scripts\\LSystem\\Strawberry\\StrawberryGenerationSystem.cs",
               "RelativeToolTip": "Assets\\Scripts\\LSystem\\Strawberry\\StrawberryGenerationSystem.cs",
-              "ViewState": "AQIAALQAAAAAAAAAAAAowAkAAAAsAAAA",
+              "ViewState": "AQIAAMEAAAAAAAAAAAAUwNgAAABAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-05-14T17:43:21.602Z",
               "IsPinned": true,
@@ -68,15 +72,15 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "LSystemGenerator.cs",
-              "DocumentMoniker": "D:\\PlantSimulation\\src\\PlantSimulation\\Assets\\Scripts\\LSystem\\LSystemGenerator.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\LSystem\\LSystemGenerator.cs",
-              "ToolTip": "D:\\PlantSimulation\\src\\PlantSimulation\\Assets\\Scripts\\LSystem\\LSystemGenerator.cs",
-              "RelativeToolTip": "Assets\\Scripts\\LSystem\\LSystemGenerator.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "DocumentIndex": 4,
+              "Title": "LeafComponent.cs",
+              "DocumentMoniker": "D:\\PlantSimulation\\src\\PlantSimulation\\Assets\\Scripts\\Components\\LeafComponent.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Components\\LeafComponent.cs",
+              "ToolTip": "D:\\PlantSimulation\\src\\PlantSimulation\\Assets\\Scripts\\Components\\LeafComponent.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Components\\LeafComponent.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAuwBUAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-17T18:56:06.647Z",
+              "WhenOpened": "2024-05-18T16:44:07.082Z",
               "EditorCaption": ""
             },
             {
@@ -85,7 +89,19 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 8,
+              "Title": "LSystemGenerator.cs",
+              "DocumentMoniker": "D:\\PlantSimulation\\src\\PlantSimulation\\Assets\\Scripts\\LSystem\\LSystemGenerator.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\LSystem\\LSystemGenerator.cs",
+              "ToolTip": "D:\\PlantSimulation\\src\\PlantSimulation\\Assets\\Scripts\\LSystem\\LSystemGenerator.cs",
+              "RelativeToolTip": "Assets\\Scripts\\LSystem\\LSystemGenerator.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-17T18:56:06.647Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
               "Title": "StrawberryLeafAnimationSystem.cs",
               "DocumentMoniker": "D:\\PlantSimulation\\src\\PlantSimulation\\Assets\\Scripts\\Systems\\Strawberry\\StrawberryLeafAnimationSystem.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Systems\\Strawberry\\StrawberryLeafAnimationSystem.cs",
@@ -93,12 +109,11 @@
               "RelativeToolTip": "Assets\\Scripts\\Systems\\Strawberry\\StrawberryLeafAnimationSystem.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAB4AAAABAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-17T18:55:48.345Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-05-17T18:55:48.345Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 3,
               "Title": "StemGrowthAnimationSystem.cs",
               "DocumentMoniker": "D:\\PlantSimulation\\src\\PlantSimulation\\Assets\\Scripts\\Systems\\Animations\\StemGrowthAnimationSystem.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Systems\\Animations\\StemGrowthAnimationSystem.cs",
@@ -111,32 +126,33 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "StrawberryStemAnimationSystem.cs",
               "DocumentMoniker": "D:\\PlantSimulation\\src\\PlantSimulation\\Assets\\Scripts\\Systems\\Strawberry\\StrawberryStemAnimationSystem.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Systems\\Strawberry\\StrawberryStemAnimationSystem.cs",
               "ToolTip": "D:\\PlantSimulation\\src\\PlantSimulation\\Assets\\Scripts\\Systems\\Strawberry\\StrawberryStemAnimationSystem.cs",
               "RelativeToolTip": "Assets\\Scripts\\Systems\\Strawberry\\StrawberryStemAnimationSystem.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABkAAAABAAAA",
+              "ViewState": "AQIAABYAAAAAAAAAAAAQwDQAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-05-17T18:32:02.1Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 2,
               "Title": "FlowerComponent.cs",
               "DocumentMoniker": "D:\\PlantSimulation\\src\\PlantSimulation\\Assets\\Scripts\\Components\\FlowerComponent.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Components\\FlowerComponent.cs",
               "ToolTip": "D:\\PlantSimulation\\src\\PlantSimulation\\Assets\\Scripts\\Components\\FlowerComponent.cs",
               "RelativeToolTip": "Assets\\Scripts\\Components\\FlowerComponent.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAuwAwAAAASAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABIAAAAiAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-17T18:05:34.7Z"
+              "WhenOpened": "2024-05-17T18:05:34.7Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 7,
               "Title": "StrawberryAnimationSystem.cs",
               "DocumentMoniker": "D:\\PlantSimulation\\src\\PlantSimulation\\Assets\\Scripts\\Systems\\Strawberry\\StrawberryAnimationSystem.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Systems\\Strawberry\\StrawberryAnimationSystem.cs",
@@ -144,12 +160,11 @@
               "RelativeToolTip": "Assets\\Scripts\\Systems\\Strawberry\\StrawberryAnimationSystem.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAMAAAAtAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-17T17:18:46.356Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-05-17T17:18:46.356Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 10,
               "Title": "MintLeafAnimationSystem.cs",
               "DocumentMoniker": "D:\\PlantSimulation\\src\\PlantSimulation\\Assets\\Scripts\\Systems\\Lychnis\\Leaf\\MintLeafAnimationSystem.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Systems\\Lychnis\\Leaf\\MintLeafAnimationSystem.cs",
@@ -161,7 +176,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 9,
               "Title": "StemComponent.cs",
               "DocumentMoniker": "D:\\PlantSimulation\\src\\PlantSimulation\\Assets\\Scripts\\Components\\StemComponent.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Components\\StemComponent.cs",
@@ -173,13 +188,13 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 5,
               "Title": "EcsGameStartup.cs",
               "DocumentMoniker": "D:\\PlantSimulation\\src\\PlantSimulation\\Assets\\Scripts\\EcsGameStartup.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\EcsGameStartup.cs",
               "ToolTip": "D:\\PlantSimulation\\src\\PlantSimulation\\Assets\\Scripts\\EcsGameStartup.cs",
               "RelativeToolTip": "Assets\\Scripts\\EcsGameStartup.cs",
-              "ViewState": "AQIAAIIAAAAAAAAAAAAkwJ8AAAAAAAAA",
+              "ViewState": "AQIAAIIAAAAAAAAAAAAkwJ4AAAAFAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-05-15T12:45:13.275Z",
               "EditorCaption": ""

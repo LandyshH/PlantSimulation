@@ -16,4 +16,6 @@ public struct LeafComponent
     public float MaxWidth;
     public int LeafNumber;
     public bool ChangedToRust;
+
+    public Vector3 TargetPosition;
 }
