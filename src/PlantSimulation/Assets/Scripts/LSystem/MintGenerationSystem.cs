@@ -31,21 +31,16 @@ namespace Assets.Scripts.LSystem
 
         private Stack<Turtle> stack = new Stack<Turtle>();
 
+        private Vector3 stemPosition;
+
         private Dictionary<string, List<string>> ruleset = new Dictionary<string, List<string>>()
-{           // обыграть количество цветов
-            {"F", new List<string>{"FF" }}, 
-            {"A", new List<string>{"F[SL][DL][-Fa][+Fa]FA"}}, 
+        {
+            {"F", new List<string>{"FF" }},
+            {"A", new List<string>{"F[SL][DL][-Fa][+Fa]FA"}},
             {"a", new List<string>{"F[SL][DL]Fb"}},
             {"b", new List<string>{"F[+K][-K]Fb", "F[+K][-K][++K][--K]Fb","F[+K][-K][++K][--K][+K][-K]Fb"}}
-};
+        };
 
-        /* {"a", "I[L]a" },
-     {"a", "I[L]A" },
-     { "A", "I[L][b]A" },
-     { "A", "I[L][b]B" },
-     { "b", "I[L]b" },
-     { "b", "I[L]B" },
-     { "B", "I[K]B" },*/
         public void Run()
         {
             if (staticData.PlantGrowthStage == Enum.PlantGrowthStage.Embryonic && !staticData.SproutGenerated)
@@ -63,13 +58,13 @@ namespace Assets.Scripts.LSystem
                 return;
             }
 
-            if (staticData.PlantGrowthStage == Enum.PlantGrowthStage.Juvenile && !staticData.JuvnileGenerated)
+            if (staticData.PlantGrowthStage == Enum.PlantGrowthStage.Juvenile && !staticData.JuvenileGenerated)
             {
                 var plant = GameObject.FindGameObjectsWithTag("Plant").FirstOrDefault();
 
-                foreach (Transform child in plant.transform) Object.Destroy(child.gameObject);
+                //foreach (Transform child in plant.transform) Object.Destroy(child.gameObject);
 
-                StemLength = 0.01f;
+                StemLength = 0.005f;
                 StemWidth = 0.2f;
                 flowerSize = 0.3f;
                 LeafLength = 0.3f;
@@ -80,16 +75,15 @@ namespace Assets.Scripts.LSystem
                 generations = 7;
                 GenerateAndDrawLSystem();
 
-                staticData.JuvnileGenerated = true;
+                staticData.JuvenileGenerated = true;
                 return;
             }
 
-            if (staticData.JuvnileGenerated)
+            if (staticData.JuvenileGenerated)
             {
                 return;
             }
         }
-
 
         private void CalculateGrowth()
         {
@@ -181,9 +175,12 @@ namespace Assets.Scripts.LSystem
         {
             var plant = GameObject.FindGameObjectsWithTag("Plant").FirstOrDefault();
 
-            Turtle turtle = new Turtle(plant.transform.rotation, plant.transform.position, Vector3.up * StemLength);
+            Turtle turtle = new Turtle(plant.transform.rotation, plant.transform.position, Vector3.up * StemLength * 2);
 
             var stemLengthCounter = 0;
+
+            // Словарь для хранения начальных позиций и направлений
+            var directionData = new Dictionary<Quaternion, (Vector3, int)>();
 
             for (int i = 0; i < lSystemString.Length; i++)
             {
@@ -192,29 +189,42 @@ namespace Assets.Scripts.LSystem
                 switch (c)
                 {
                     case 'F':
-                        DrawStem(turtle.position, turtle.direction);
-                        turtle.Forward();
-                        stemLengthCounter++;
+                        int count = 1;
+                        while (i + 1 < lSystemString.Length && lSystemString[i + 1] == 'F')
+                        {
+                            count++;
+                            i++;
+                        }
+                        if (directionData.ContainsKey(turtle.direction))
+                        {
+                            var data = directionData[turtle.direction];
+                            directionData[turtle.direction] = (data.Item1, data.Item2 + count);
+                        }
+                        else
+                        {
+                            directionData[turtle.direction] = (turtle.position, count);
+                        }
+                        for (int j = 0; j < count; j++)
+                        {
+                            turtle.Forward();
+                        }
+                        stemLengthCounter += count;
                         break;
                     case 'L':
                         DrawLeaf(turtle.position, turtle.direction);
                         break;
                     case 'A':
-                        DrawFlower(turtle.position, turtle.direction);
-                        break;
                     case 'K':
-                        DrawFlower(turtle.position, turtle.direction);
-                        break;
                     case 'b':
                         DrawFlower(turtle.position, turtle.direction);
                         break;
                     case '+':
-                        turtle.RotateZ(Random.Range(angle - 15, angle + 15)); 
-                        turtle.RotateX(Random.Range(-45, 45)); 
+                        turtle.RotateZ(Random.Range(angle - 15, angle + 15));
+                        turtle.RotateX(Random.Range(-45, 45));
                         break;
                     case '-':
-                        turtle.RotateZ(Random.Range(-angle - 15, -angle + 15)); 
-                        turtle.RotateX(Random.Range(-45, 45)); 
+                        turtle.RotateZ(Random.Range(-angle - 15, -angle + 15));
+                        turtle.RotateX(Random.Range(-45, 45));
                         break;
                     case 'D':
                         turtle.RotateY(leafAngle);
@@ -232,18 +242,28 @@ namespace Assets.Scripts.LSystem
                         break;
                 }
             }
+
+            // Рисуем стебли из списка направлений
+            foreach (var direction in directionData)
+            {
+                DrawStem(direction.Value.Item1, direction.Key, direction.Value.Item2);
+            }
         }
 
-        private void DrawStem(Vector3 position, Quaternion direction)
+        private void DrawStem(Vector3 position, Quaternion direction, int count)
         {
-            if(StemWidth > 0)
+            float totalLength = StemLength * count;
+            if (StemWidth > 0)
+            {
                 StemWidth -= StemCount * 0.0000004f;
+            }
             StemCount++;
+
             var stem = GameObject.Instantiate(MintPrefabs.StemPrefab);
             stem.transform.position = position;
             stem.transform.rotation = direction;
-            stem.transform.localScale = new Vector3(StemWidth, StemLength, StemWidth);
-            stem.name = "Internode";
+            stem.transform.localScale = new Vector3(StemWidth, 0f, StemWidth);
+            stem.name = "Stem";
 
             var plant = GameObject.FindGameObjectsWithTag("Plant").FirstOrDefault();
             stem.transform.parent = plant.transform;
@@ -254,10 +274,12 @@ namespace Assets.Scripts.LSystem
             stemComponent.Lifetime = 0;
             stemComponent.Position = position;
             stemComponent.Height = 0;
-            stemComponent.MaxHeight = StemLength;
+            stemComponent.MaxHeight = totalLength;
             stemComponent.Width = StemWidth;
-            stemComponent.MaxWidth = 0.01f;
+            stemComponent.MaxWidth = StemWidth;
             stemComponent.stemGO = stem;
+
+            stemPosition = position;
         }
 
         private void DrawLeaf(Vector3 position, Quaternion direction)
@@ -267,9 +289,12 @@ namespace Assets.Scripts.LSystem
             LeafCount++;
 
             var leaf = GameObject.Instantiate(MintPrefabs.LeafPrefab);
-            leaf.transform.localScale = new Vector3(LeafWidth, 1f, LeafLength);
-            leaf.transform.position = position;
+
+            //Vector3 leafPosition = stemPosition;
+
+            leaf.transform.localScale = new Vector3(0, 0, 0);
             leaf.transform.rotation = direction;
+            leaf.transform.position = position;
             leaf.name = "Leaf " + LeafCount;
 
             var plant = GameObject.FindGameObjectsWithTag("Plant").FirstOrDefault();
@@ -281,24 +306,19 @@ namespace Assets.Scripts.LSystem
             component.Lifetime = 0;
             component.Height = 0;
             component.Width = 0;
-            component.MaxHeight = 0.3f;
-            component.MaxWidth = 0.03f;
+            component.MaxHeight = LeafLength;
+            component.MaxWidth = LeafLength;
             component.LeafGO = leaf;
+
+            component.TargetPosition = position;
         }
 
         private void DrawFlower(Vector3 position, Quaternion direction)
         {
             GameObject flower;
-            if (staticData.PlantGrowthStage == Enum.PlantGrowthStage.Juvenile)
-            {
-                flower = GameObject.Instantiate(MintPrefabs.BudPrefab);
-            }
-            else
-            {
-                flower = GameObject.Instantiate(MintPrefabs.FlowerPrefab);
-            }
+            flower = GameObject.Instantiate(MintPrefabs.BudPrefab);
 
-            flower.transform.localScale = new Vector3(flowerSize, flowerSize, flowerSize);
+            flower.transform.localScale = new Vector3(0, 0, 0);
             flower.transform.position = position;
             flower.transform.rotation = direction;
             flower.name = "Flower";
@@ -309,6 +329,11 @@ namespace Assets.Scripts.LSystem
             var entity = _ecsWorld.NewEntity();
             ref var component = ref entity.Get<FlowerComponent>();
             component.FlowerGO = flower;
+
+            component.IsBud = true;
+            component.maxSize = flowerSize;
+
+            component.TargetPosition = position;
         }
 
         private struct Turtle
@@ -316,12 +341,14 @@ namespace Assets.Scripts.LSystem
             public Quaternion direction;
             public Vector3 position;
             public Vector3 step;
+            public Quaternion lastDirection;
 
             public Turtle(Turtle other)
             {
                 this.direction = other.direction;
                 this.position = other.position;
                 this.step = other.step;
+                this.lastDirection = other.lastDirection;
             }
 
             public Turtle(Quaternion direction, Vector3 position, Vector3 step)
@@ -329,6 +356,7 @@ namespace Assets.Scripts.LSystem
                 this.direction = direction;
                 this.position = position;
                 this.step = step;
+                this.lastDirection = direction;
             }
 
             public void Forward()
@@ -350,17 +378,15 @@ namespace Assets.Scripts.LSystem
             {
                 direction *= Quaternion.Euler(0, 0, angle);
             }
-        }
 
-        private struct TransformData
-        {
-            public Vector3 position;
-            public Quaternion rotation;
-
-            public TransformData(Vector3 pos, Quaternion rot)
+            public bool HasDirectionChanged()
             {
-                position = pos;
-                rotation = rot;
+                return direction != lastDirection;
+            }
+
+            public void UpdateLastDirection()
+            {
+                lastDirection = direction;
             }
         }
     }

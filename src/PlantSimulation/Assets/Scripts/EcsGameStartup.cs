@@ -107,6 +107,7 @@ public class EcsGamestartup : MonoBehaviour
                 .Add(new MintInputSystem())
                 .Add(new MintFlowerAnimationSystem())
                 .Add(new MintLeafAnimationSystem())
+                .Add(new MintStemAnimationSystem())
                // .Add(new LychnisGrowStemSystem())
                // .Add(new LychnisGrowLeafSystem())
                 /*.Add(new CreateBlockSystem())

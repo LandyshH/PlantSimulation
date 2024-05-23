@@ -18,7 +18,7 @@ public class StaticData : ScriptableObject
     public int CurrGeneration = 0;
 
     public bool SproutGenerated = false;
-    public bool JuvnileGenerated = false;
+    public bool JuvenileGenerated = false;
     public bool MaturityGenerated = false;
     public bool SenileGenerated = false;
 }

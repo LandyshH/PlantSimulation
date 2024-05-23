@@ -36,14 +36,14 @@ namespace Assets.Scripts.LSystem.Strawberry
                 return;
             }
 
-            if (staticData.PlantGrowthStage == Enum.PlantGrowthStage.Juvenile && !staticData.JuvnileGenerated)
+            if (staticData.PlantGrowthStage == Enum.PlantGrowthStage.Juvenile && !staticData.JuvenileGenerated)
             {
                 GenerateLeafStemString();
 
                 Debug.Log(axiom);
                 DrawLSystem(axiom);
 
-                staticData.JuvnileGenerated = true;
+                staticData.JuvenileGenerated = true;
                 return;
             }
 
@@ -207,7 +207,6 @@ namespace Assets.Scripts.LSystem.Strawberry
 
             component.TargetPosition = position;
         }
-
 
 
         private void DrawFlower(Vector3 position, Quaternion direction)

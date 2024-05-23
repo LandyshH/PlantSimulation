@@ -14,7 +14,7 @@ namespace Assets.Scripts.Systems.Lychnis
         {
             staticData.PlantGrowthStage = PlantGrowthStage.Embryonic;
             ui.environmentWindowScreen.SetActive(false);
-            staticData.JuvnileGenerated = false;
+            staticData.JuvenileGenerated = false;
             staticData.SproutGenerated = false;
             staticData.MaturityGenerated = false;
 
