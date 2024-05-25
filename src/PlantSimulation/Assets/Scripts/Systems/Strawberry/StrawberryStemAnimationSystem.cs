@@ -7,6 +7,7 @@ public sealed class StrawberryStemAnimationSystem : IEcsRunSystem
     private EcsFilter<LeafComponent> _leafFilter;
     private EcsFilter<FlowerComponent> _flowerFilter;
     private readonly StaticData _staticData;
+    private EnvironmentSettings _environmentSettings;
 
     public void Run()
     {
@@ -18,6 +19,13 @@ public sealed class StrawberryStemAnimationSystem : IEcsRunSystem
         foreach (var i in _stemFilter)
         {
             ref var stem = ref _stemFilter.Get1(i);
+
+            if (_environmentSettings.Temperature == Assets.Scripts.Enum.Temperature.Max)
+            {
+                stem.Width -= 0.02f;
+                stem.MaxHeight -= 0.2f;
+            }
+
             Vector3 maxScale = new Vector3(stem.Width, stem.MaxHeight, stem.Width);
 
             stem.stemGO.transform.localScale = Vector3.Lerp(stem.stemGO.transform.localScale, maxScale,

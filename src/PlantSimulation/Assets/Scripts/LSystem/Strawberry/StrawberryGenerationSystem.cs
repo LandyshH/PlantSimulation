@@ -50,8 +50,6 @@ namespace Assets.Scripts.LSystem.Strawberry
             if (staticData.PlantGrowthStage == Enum.PlantGrowthStage.MaturityAndReproduction 
                 && !staticData.MaturityGenerated)
             {
-                //StemLength *= 1 + ;
-
                 GenerateStrawberryStemString();
 
                 DrawLSystem(axiom);
@@ -64,6 +62,58 @@ namespace Assets.Scripts.LSystem.Strawberry
             if (staticData.MaturityGenerated)
             {
                 return;
+            }
+        }
+
+        private void CalculateGrowth()
+        {
+            /*private float StemLength = 0.6f;
+        private float StemWidth = 1f;
+        private float flowerSize = 1f;
+        private float LeafLength = 0.6f;*/
+            if (environment.Water == Enum.Water.Lack || environment.Water == Enum.Water.Excess)
+            {
+                StemLength -= 0.003f;
+                StemWidth -= 0.001f;
+
+                flowerSize -= 0.1f;
+
+                LeafWidth -= 0.07f;
+                LeafLength -= 0.07f;
+            }
+
+            if (environment.Temperature == Enum.Temperature.Max)
+            {
+                StemLength -= 0.005f;
+                StemWidth -= 0.001f;
+
+                flowerSize -= 0.1f;
+
+                LeafWidth -= 0.1f;
+                LeafLength -= 0.1f;
+            }
+
+            if (environment.Temperature == Enum.Temperature.Min)
+            {
+                StemLength -= 0.005f;
+                StemWidth -= 0.001f;
+                flowerSize -= 0.1f;
+                LeafWidth -= 0.1f;
+            }
+
+            if (environment.Oxygen == Enum.Oxygen.Lack || environment.Oxygen == Enum.Oxygen.Excess)
+            {
+                StemLength -= 0.002f;
+                LeafWidth -= 0.05f;
+                LeafLength -= 0.05f;
+            }
+
+            if (environment.Light == Enum.LightColor.Darkness)
+            {
+                StemLength -= 0.0005f;
+
+                LeafWidth -= 0.1f;
+                LeafLength -= 0.1f;
             }
         }
 
