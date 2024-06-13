@@ -20,11 +20,11 @@ public sealed class StrawberryStemAnimationSystem : IEcsRunSystem
         {
             ref var stem = ref _stemFilter.Get1(i);
 
-            if (_environmentSettings.Temperature == Assets.Scripts.Enum.Temperature.Max)
+            /*if (_environmentSettings.Temperature == Assets.Scripts.Enum.Temperature.Max)
             {
                 stem.Width -= 0.02f;
                 stem.MaxHeight -= 0.2f;
-            }
+            }*/
 
             Vector3 maxScale = new Vector3(stem.Width, stem.MaxHeight, stem.Width);
 

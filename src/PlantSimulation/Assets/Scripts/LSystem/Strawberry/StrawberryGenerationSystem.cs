@@ -28,6 +28,7 @@ namespace Assets.Scripts.LSystem.Strawberry
 
         public void Run()
         {
+
             if (staticData.PlantGrowthStage == Enum.PlantGrowthStage.Embryonic && !staticData.SproutGenerated)
             {
                 DrawLSystem(axiom);
@@ -38,6 +39,8 @@ namespace Assets.Scripts.LSystem.Strawberry
 
             if (staticData.PlantGrowthStage == Enum.PlantGrowthStage.Juvenile && !staticData.JuvenileGenerated)
             {
+                CalculateGrowth();
+
                 GenerateLeafStemString();
 
                 Debug.Log(axiom);
@@ -50,6 +53,8 @@ namespace Assets.Scripts.LSystem.Strawberry
             if (staticData.PlantGrowthStage == Enum.PlantGrowthStage.MaturityAndReproduction 
                 && !staticData.MaturityGenerated)
             {
+                CalculateGrowth();
+
                 GenerateStrawberryStemString();
 
                 DrawLSystem(axiom);
@@ -71,10 +76,10 @@ namespace Assets.Scripts.LSystem.Strawberry
         private float StemWidth = 1f;
         private float flowerSize = 1f;
         private float LeafLength = 0.6f;*/
+
             if (environment.Water == Enum.Water.Lack || environment.Water == Enum.Water.Excess)
             {
                 StemLength -= 0.003f;
-                StemWidth -= 0.001f;
 
                 flowerSize -= 0.1f;
 
@@ -84,19 +89,17 @@ namespace Assets.Scripts.LSystem.Strawberry
 
             if (environment.Temperature == Enum.Temperature.Max)
             {
-                StemLength -= 0.005f;
-                StemWidth -= 0.001f;
+                StemLength -= 0.3f;
 
-                flowerSize -= 0.1f;
+                flowerSize -= 0.2f;
 
-                LeafWidth -= 0.1f;
-                LeafLength -= 0.1f;
+                LeafWidth -= 0.2f;
+                LeafLength -= 0.2f;
             }
 
             if (environment.Temperature == Enum.Temperature.Min)
             {
                 StemLength -= 0.005f;
-                StemWidth -= 0.001f;
                 flowerSize -= 0.1f;
                 LeafWidth -= 0.1f;
             }
@@ -121,6 +124,12 @@ namespace Assets.Scripts.LSystem.Strawberry
         {
             string output = "[F";
             var strwStemCount = Random.Range(2, 4);
+
+            if (environment.Temperature == Enum.Temperature.Max)
+            {
+                strwStemCount = 1;
+            }
+
             for (var i = 0; i < strwStemCount; i++)
             {
                 output += "[S]";
@@ -157,6 +166,12 @@ namespace Assets.Scripts.LSystem.Strawberry
                 {
                     case 'F':
                         StemLength = Random.Range(0.4f, 1.5f);
+
+                        if (environment.Temperature == Enum.Temperature.Max)
+                        {
+                            StemLength = Random.Range(0.4f, 0.7f);
+                        }
+
                         if (staticData.PlantGrowthStage == Enum.PlantGrowthStage.Embryonic)
                             StemLength = 0.6f;
 

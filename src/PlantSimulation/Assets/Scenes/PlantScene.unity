@@ -1489,6 +1489,7 @@ GameObject:
   - component: {fileID: 254588825}
   - component: {fileID: 254588824}
   - component: {fileID: 254588823}
+  - component: {fileID: 254588826}
   m_Layer: 0
   m_Name: Camera
   m_TagString: Untagged
@@ -1570,6 +1571,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 1.687, y: 114.683, z: 0}
+--- !u!114 &254588826
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 254588822}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2abe21f733ee96f439e42af4f2154f41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MouseSens: 100
 --- !u!1 &294673877
 GameObject:
   m_ObjectHideFlags: 0
@@ -8241,7 +8255,7 @@ MonoBehaviour:
   configuration: {fileID: 11400000, guid: ea677111c347a7349be3cfe0f2dfab17, type: 2}
   environmentSettings: {fileID: 11400000, guid: 3b033e34aba0d5c469937234818c4f8c, type: 2}
   ui: {fileID: 200026979}
-  plantType: 2
+  plantType: 1
   sunflowerObjects: {fileID: 11400000, guid: f8515b0fb97fa0043aec6456901448ca, type: 2}
   MintPrefabs: {fileID: 11400000, guid: 7e874e72e1a88304498a2e8149361172, type: 2}
   StrawberryObjects: {fileID: 11400000, guid: 4ca1ae0e6dd6d6541b58708d9e624ac0, type: 2}

@@ -243,7 +243,6 @@ namespace Assets.Scripts.LSystem
                 }
             }
 
-            // Рисуем стебли из списка направлений
             foreach (var direction in directionData)
             {
                 DrawStem(direction.Value.Item1, direction.Key, direction.Value.Item2);
